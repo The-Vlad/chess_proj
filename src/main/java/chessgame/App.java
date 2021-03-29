@@ -4,10 +4,16 @@
 package chessgame;
 
 import chessgame.entities.*;
+import chessgame.windows.*;
 
 public class App {
     public int run() {
-        Pole testingObj = new Pole();
+        Window wnd = new Menu().go();
+
+        while(wnd != null){
+            wnd = wnd.go();
+        }
+
         return 0;
     }
 
