@@ -8,11 +8,12 @@ import chessgame.windows.*;
 
 public class App {
     public int run() {
-        Window wnd = new Menu().go();
+        /*Window wnd = new Menu().go();
 
         while(wnd != null){
             wnd = wnd.go();
         }
+        */
 
         return 0;
     }
