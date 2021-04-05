@@ -3,22 +3,30 @@
  */
 package chessgame;
 
-import chessgame.entities.*;
 import chessgame.windows.*;
 
-public class App {
-    public int run() {
-        /*Window wnd = new Menu().go();
+import javax.swing.*;
 
-        while(wnd != null){
-            wnd = wnd.go();
-        }
-        */
+public class App extends JFrame implements IWindow{
+    public GameForm game;
+    public MenuForm menu;
 
-        return 0;
+    public App(){
+        super("ChessGame");
+        this.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+        this.setSize(default_size.x, default_size.y);
+    }
+
+    public void go() {
+        game = new GameForm(this);
+        menu = new MenuForm(this);
+
+        this.setContentPane(menu.menu_panel);
+        this.pack();
+        this.setVisible(true);
     }
 
     public static void main(String[] args) {
-        new App().run();
+        new App().go();
     }
 }
