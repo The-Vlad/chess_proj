@@ -1,7 +1,10 @@
 public class Figure
 {
-  public int coordination_x;
-  public int coordination_y;
-  public String name_figure;
+  String name_figure;
   public char color_figure;
+
+  public Figure(String name_figure)
+  {
+    this.name_figure=name_figure;
+  }
 }
