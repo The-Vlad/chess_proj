@@ -20,7 +20,6 @@ public class App extends JFrame implements IWindow{
     public App(){
         super("ChessGame");
         this.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
-        this.setSize(default_size.x, default_size.y);
     }
 
     /**
@@ -33,6 +32,7 @@ public class App extends JFrame implements IWindow{
         this.setContentPane(menu.menu_panel);
         this.pack();
         this.setVisible(true);
+        this.setSize(default_size.x, default_size.y);
     }
 
     /**

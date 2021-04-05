@@ -5,13 +5,12 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="c478b80a-1fa1-4da4-bfd1-768d036c19b8" name="Default Changelist" comment="">
-      <change beforePath="$PROJECT_DIR$/.gitignore" beforeDir="false" afterPath="$PROJECT_DIR$/.gitignore" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.gradle/6.8.3/executionHistory/executionHistory.bin" beforeDir="false" afterPath="$PROJECT_DIR$/.gradle/6.8.3/executionHistory/executionHistory.bin" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.gradle/6.8.3/executionHistory/executionHistory.lock" beforeDir="false" afterPath="$PROJECT_DIR$/.gradle/6.8.3/executionHistory/executionHistory.lock" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.gradle/6.8.3/fileHashes/fileHashes.bin" beforeDir="false" afterPath="$PROJECT_DIR$/.gradle/6.8.3/fileHashes/fileHashes.bin" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.gradle/6.8.3/fileHashes/fileHashes.lock" beforeDir="false" afterPath="$PROJECT_DIR$/.gradle/6.8.3/fileHashes/fileHashes.lock" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.gradle/buildOutputCleanup/buildOutputCleanup.lock" beforeDir="false" afterPath="$PROJECT_DIR$/.gradle/buildOutputCleanup/buildOutputCleanup.lock" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/chessgame/App.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/chessgame/App.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/chessgame/entities/Figure.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/chessgame/entities/Figure.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/chessgame/entities/Pole.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/chessgame/entities/Pole.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/chessgame/windows/IWindow.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/chessgame/windows/IWindow.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/chessgame/windows/MenuForm.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/chessgame/windows/MenuForm.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -114,7 +113,7 @@
       <recent name="D:\MyGitHub\chess_proj_clone\app\src\main\java\chessgame\entities" />
     </key>
   </component>
-  <component name="RunManager" selected="Gradle.chess_proj_clone [shadowJar]">
+  <component name="RunManager" selected="Application.App">
     <configuration name="App" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
       <option name="MAIN_CLASS_NAME" value="chessgame.App" />
       <module name="chessgame.main" />
@@ -201,8 +200,8 @@
     </configuration>
     <recent_temporary>
       <list>
-        <item itemvalue="Gradle.chess_proj_clone [shadowJar]" />
         <item itemvalue="Application.App" />
+        <item itemvalue="Gradle.chess_proj_clone [shadowJar]" />
         <item itemvalue="Gradle.chess_proj_clone [javadoc]" />
         <item itemvalue="Application.Pole" />
         <item itemvalue="Gradle.chess_proj_clone [run]" />
@@ -269,30 +268,30 @@
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
     <state x="739" y="260" key="FileChooserDialogImpl/0.0.1920.1040@0.0.1920.1040" timestamp="1617035391949" />
-    <state width="1877" height="183" key="GridCell.Tab.0.bottom" timestamp="1617626424472">
+    <state width="1877" height="183" key="GridCell.Tab.0.bottom" timestamp="1617629123164">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
-    <state width="1877" height="183" key="GridCell.Tab.0.bottom/0.0.1920.1040@0.0.1920.1040" timestamp="1617626424472" />
-    <state width="1877" height="183" key="GridCell.Tab.0.center" timestamp="1617626424471">
+    <state width="1877" height="183" key="GridCell.Tab.0.bottom/0.0.1920.1040@0.0.1920.1040" timestamp="1617629123164" />
+    <state width="1877" height="183" key="GridCell.Tab.0.center" timestamp="1617629123163">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
-    <state width="1877" height="183" key="GridCell.Tab.0.center/0.0.1920.1040@0.0.1920.1040" timestamp="1617626424471" />
-    <state width="1877" height="183" key="GridCell.Tab.0.left" timestamp="1617626424471">
+    <state width="1877" height="183" key="GridCell.Tab.0.center/0.0.1920.1040@0.0.1920.1040" timestamp="1617629123163" />
+    <state width="1877" height="183" key="GridCell.Tab.0.left" timestamp="1617629123163">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
-    <state width="1877" height="183" key="GridCell.Tab.0.left/0.0.1920.1040@0.0.1920.1040" timestamp="1617626424471" />
-    <state width="1877" height="183" key="GridCell.Tab.0.right" timestamp="1617626424471">
+    <state width="1877" height="183" key="GridCell.Tab.0.left/0.0.1920.1040@0.0.1920.1040" timestamp="1617629123163" />
+    <state width="1877" height="183" key="GridCell.Tab.0.right" timestamp="1617629123163">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
-    <state width="1877" height="183" key="GridCell.Tab.0.right/0.0.1920.1040@0.0.1920.1040" timestamp="1617626424471" />
+    <state width="1877" height="183" key="GridCell.Tab.0.right/0.0.1920.1040@0.0.1920.1040" timestamp="1617629123163" />
     <state x="540" y="262" key="IDE.errors.dialog" timestamp="1617619267403">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
     <state x="540" y="262" key="IDE.errors.dialog/0.0.1920.1040@0.0.1920.1040" timestamp="1617619267403" />
-    <state x="460" y="163" key="SettingsEditor" timestamp="1617625432581">
+    <state x="460" y="163" key="SettingsEditor" timestamp="1617627076904">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
-    <state x="460" y="163" key="SettingsEditor/0.0.1920.1040@0.0.1920.1040" timestamp="1617625432581" />
+    <state x="460" y="163" key="SettingsEditor/0.0.1920.1040@0.0.1920.1040" timestamp="1617627076904" />
     <state x="283" y="442" key="chooseDestDirectoryDialog" timestamp="1617025106745">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
