@@ -1,6 +1,7 @@
 package chessgame.windows;
 
 import chessgame.App;
+import chessgame.entities.Pole;
 import com.intellij.uiDesigner.core.GridConstraints;
 import com.intellij.uiDesigner.core.GridLayoutManager;
 import com.intellij.uiDesigner.core.Spacer;
@@ -17,13 +18,18 @@ import java.awt.event.ActionListener;
 public class GameForm extends JFrame implements IWindow {
     public JPanel game_panel;
 
+    private Pole pole;
     private JButton toMenuButton;
+    private JPanel board_panel;
 
     /**
      * Constructor that defines listeners to the components
+     *
      * @param application reference to the application window
      */
     public GameForm(App application) {
+        pole = new Pole();
+        board_panel.add(pole.pole_panel);
 
         toMenuButton.addActionListener(new ActionListener() {
             /**
@@ -63,11 +69,13 @@ public class GameForm extends JFrame implements IWindow {
         game_panel.add(spacer2, new GridConstraints(2, 0, 1, 1, GridConstraints.ANCHOR_CENTER, GridConstraints.FILL_VERTICAL, 1, GridConstraints.SIZEPOLICY_WANT_GROW, null, null, null, 0, false));
         final Spacer spacer3 = new Spacer();
         game_panel.add(spacer3, new GridConstraints(0, 0, 1, 1, GridConstraints.ANCHOR_CENTER, GridConstraints.FILL_VERTICAL, 1, GridConstraints.SIZEPOLICY_WANT_GROW, null, null, null, 0, false));
-        final Spacer spacer4 = new Spacer();
-        game_panel.add(spacer4, new GridConstraints(1, 2, 1, 1, GridConstraints.ANCHOR_CENTER, GridConstraints.FILL_HORIZONTAL, GridConstraints.SIZEPOLICY_WANT_GROW, 1, null, null, null, 0, false));
         toMenuButton = new JButton();
         toMenuButton.setText("ToMenu");
         game_panel.add(toMenuButton, new GridConstraints(1, 1, 1, 1, GridConstraints.ANCHOR_CENTER, GridConstraints.FILL_HORIZONTAL, GridConstraints.SIZEPOLICY_CAN_SHRINK | GridConstraints.SIZEPOLICY_CAN_GROW, GridConstraints.SIZEPOLICY_FIXED, null, null, null, 0, false));
+        board_panel = new JPanel();
+        board_panel.setLayout(new FlowLayout(FlowLayout.CENTER, 5, 5));
+        board_panel.setBackground(new Color(-1117618));
+        game_panel.add(board_panel, new GridConstraints(1, 2, 1, 1, GridConstraints.ANCHOR_CENTER, GridConstraints.FILL_BOTH, GridConstraints.SIZEPOLICY_CAN_SHRINK | GridConstraints.SIZEPOLICY_CAN_GROW, GridConstraints.SIZEPOLICY_CAN_SHRINK | GridConstraints.SIZEPOLICY_CAN_GROW, null, null, null, 0, false));
     }
 
     /**
@@ -76,4 +84,5 @@ public class GameForm extends JFrame implements IWindow {
     public JComponent $$$getRootComponent$$$() {
         return game_panel;
     }
+
 }

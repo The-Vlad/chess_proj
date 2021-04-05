@@ -1,3 +1,5 @@
+package chessgame.entities;
+
 public class Pawn extends Figure {
     public Pawn(char color) {
         super("Pawn");

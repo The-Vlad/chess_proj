@@ -1,3 +1,5 @@
+package chessgame.entities;
+
 public class Figure
 {
   String name_figure;
