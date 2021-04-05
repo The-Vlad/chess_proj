@@ -1,7 +1,8 @@
 /out
 chess.iml
 /build
+/.idea
 #/src/main/resources
 #/src/test/resources
-
+/.gradle
 
