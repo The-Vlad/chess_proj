@@ -1,6 +1,8 @@
 /.idea
 /out
+
 chess.iml
 /build
 /src/main/resources
 /src/test/resources
+
