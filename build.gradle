@@ -37,3 +37,7 @@ shadowJar {
     libsDirName = "generated-shadow-jar-${project.name}"
     classifier('')
 }
+
+javadoc {
+    options.tags = [ "noinspection" ]
+}
