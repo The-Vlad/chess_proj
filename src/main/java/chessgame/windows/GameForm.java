@@ -10,12 +10,19 @@ import java.awt.*;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 
+/**
+ * @author Naumov V.V.
+ * Class that forms Game window
+ */
 public class GameForm extends JFrame implements IWindow {
     public JPanel game_panel;
 
-    public JButton toMenuButton;
+    private JButton toMenuButton;
 
-
+    /**
+     * Constructor that defines listeners to the components
+     * @param application reference to the application window
+     */
     public GameForm(App application) {
 
         toMenuButton.addActionListener(new ActionListener() {

@@ -10,34 +10,41 @@ import java.awt.*;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 
+/**
+ * @author Naumov V.V.
+ * Class that forms Menu window
+ */
 public class MenuForm extends JFrame implements IWindow {
     public JPanel menu_panel;
 
-    public JButton edit_button;
-    public JButton exit_button;
-    public JButton settings_button;
-    public JButton PvC_button;
-    public JButton PvP_button;
-    public JButton play_button;
-    public JLabel level_label;
-    public JButton lvl_1_button;
-    public JButton lvl_5_button;
-    public JButton lvl_2_button;
-    public JButton lvl_4_button;
-    public JButton lvl_3_button;
-    public JPanel r_top_panel;
-    public JPanel r_bottom_panel;
-    public JPanel r_middle_panel;
-    public JPanel modes_panel;
-    public JPanel r_main_panel;
-    public JPanel l_main_panel;
-    public JPanel l_top_panel;
-    public JPanel l_bottom_panel;
-    public JLabel board_image1;
-    public JLabel board_image2;
-    public JButton study_button;
+    private JButton edit_button;
+    private JButton exit_button;
+    private JButton settings_button;
+    private JButton PvC_button;
+    private JButton PvP_button;
+    private JButton play_button;
+    private JLabel level_label;
+    private JButton lvl_1_button;
+    private JButton lvl_5_button;
+    private JButton lvl_2_button;
+    private JButton lvl_4_button;
+    private JButton lvl_3_button;
+    private JPanel r_top_panel;
+    private JPanel r_bottom_panel;
+    private JPanel r_middle_panel;
+    private JPanel modes_panel;
+    private JPanel r_main_panel;
+    private JPanel l_main_panel;
+    private JPanel l_top_panel;
+    private JPanel l_bottom_panel;
+    private JLabel board_image1;
+    private JLabel board_image2;
+    private JButton study_button;
 
-
+    /**
+     * Constructor that defines listeners to the components
+     * @param application reference to the application window
+     */
     public MenuForm(App application) {
         exit_button.addActionListener(new ActionListener() {
             /**
