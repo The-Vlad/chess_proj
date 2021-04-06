@@ -4,5 +4,5 @@ chess.iml
 /build
 #/src/main/resources
 #/src/test/resources
-
+/.gitignore
 

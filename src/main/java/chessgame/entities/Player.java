@@ -6,6 +6,9 @@ import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import java.util.ArrayList;
 
+
+import chessgame.Vector3ifig;
+
 public class Player {
 
     ArrayList <Figure> mas_eating_figure= new ArrayList<Figure>();// массив в котором будут храниться съединные фигуры
@@ -20,7 +23,8 @@ public class Player {
         }
 
     }
-    public   void move(int x_in_cell,int y_in_cell,Figure figure_in_cell, int x_cell_to_move, int y_cell_to_move)
+
+    public  void move(int x_in_cell,int y_in_cell,Figure figure_in_cell, int x_cell_to_move, int y_cell_to_move,Figure figure_in_cell_to_move)
     {
         if(figure_in_cell instanceof Pawn)
         {

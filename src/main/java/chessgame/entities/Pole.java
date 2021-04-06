@@ -1,5 +1,7 @@
 package chessgame.entities;
 
+import chessgame.Vector3ifig;
+
 import  javax.swing.*;
 import java.awt.*;
 import java.awt.event.ActionEvent;
@@ -51,25 +53,25 @@ public class Pole  extends JFrame{
         for(int i=0;i<8;i++)
         {
             cage[1][i].figure_in_cell=new Pawn('b');
-            cage[1][i].icon_figure= new ImageIcon("figure/pawn.png");
+            cage[1][i].icon_figure= new ImageIcon("src\\main\\resources\\figure\\pawn.png");
             cage[1][i].setIcon(cage[1][i].icon_figure);
         }
 
-        cage[0][2].icon_figure=new ImageIcon("figure/bishop.png");
+        cage[0][2].icon_figure=new ImageIcon("src\\main\\resources\\figure\\bishop.png");
         cage[0][2].setIcon( cage[0][2].icon_figure);
-        cage[0][5].icon_figure=new ImageIcon("figure/bishop.png");
+        cage[0][5].icon_figure=new ImageIcon("src\\main\\resources\\figure\\bishop.png");
         cage[0][5].setIcon( cage[0][5].icon_figure);
-        cage[0][1].icon_figure=new ImageIcon("figure/knight.png");
+        cage[0][1].icon_figure=new ImageIcon("src\\main\\resources\\figure\\knight.png");
         cage[0][1].setIcon( cage[0][1].icon_figure);
-        cage[0][6].icon_figure=new ImageIcon("figure/knight.png");
+        cage[0][6].icon_figure=new ImageIcon("src\\main\\resources\\figure\\knight.png");
         cage[0][6].setIcon( cage[0][6].icon_figure);
-        cage[0][4].icon_figure=new ImageIcon("figure/king.png");
+        cage[0][4].icon_figure=new ImageIcon("src\\main\\resources\\figure\\king.png");
         cage[0][4].setIcon( cage[0][4].icon_figure);
-        cage[0][3].icon_figure=new ImageIcon("figure/queen.png");
+        cage[0][3].icon_figure=new ImageIcon("src\\main\\resources\\figure\\queen.png");
         cage[0][3].setIcon( cage[0][3].icon_figure);
-        cage[0][0].icon_figure=new ImageIcon("figure/rook.png");
+        cage[0][0].icon_figure=new ImageIcon("src\\main\\resources\\figure\\rook.png");
         cage[0][0].setIcon( cage[0][0].icon_figure);
-        cage[0][7].icon_figure=new ImageIcon("figure/rook.png");
+        cage[0][7].icon_figure=new ImageIcon("src\\main\\resources\\figure\\rook.png");
         cage[0][7].setIcon( cage[0][7].icon_figure);
 
         //white figure
@@ -85,24 +87,24 @@ public class Pole  extends JFrame{
         for(int i=0;i<8;i++)
         {
             cage[6][i].figure_in_cell=new Pawn('w');
-            cage[6][i].icon_figure= new ImageIcon("figure/pawn_w.png");
+            cage[6][i].icon_figure= new ImageIcon("src\\main\\resources\\figure\\pawn_w.png");
             cage[6][i].setIcon(cage[6][i].icon_figure);
         }
-        cage[7][2].icon_figure=new ImageIcon("figure/bishop_w.png");
+        cage[7][2].icon_figure=new ImageIcon("src\\main\\resources\\figure\\bishop_w.png");
         cage[7][2].setIcon( cage[7][2].icon_figure);
-        cage[7][5].icon_figure=new ImageIcon("figure/bishop_w.png");
+        cage[7][5].icon_figure=new ImageIcon("src\\main\\resources\\figure\\bishop_w.png");
         cage[7][5].setIcon( cage[7][5].icon_figure);
-        cage[7][1].icon_figure=new ImageIcon("figure/knight_w.png");
+        cage[7][1].icon_figure=new ImageIcon("src\\main\\resources\\figure\\knight_w.png");
         cage[7][1].setIcon( cage[7][1].icon_figure);
-        cage[7][6].icon_figure=new ImageIcon("figure/knight_w.png");
+        cage[7][6].icon_figure=new ImageIcon("src\\main\\resources\\figure\\knight_w.png");
         cage[7][6].setIcon( cage[7][6].icon_figure);
-        cage[7][4].icon_figure=new ImageIcon("figure/king_w.png");
+        cage[7][4].icon_figure=new ImageIcon("src\\main\\resources\\figure\\king_w.png");
         cage[7][4].setIcon( cage[7][4].icon_figure);
-        cage[7][3].icon_figure=new ImageIcon("figure/queen_w.png");
+        cage[7][3].icon_figure=new ImageIcon("src\\main\\resources\\figure\\queen_w.png");
         cage[7][3].setIcon( cage[7][3].icon_figure);
-        cage[7][0].icon_figure=new ImageIcon("figure/rook_w.png");
+        cage[7][0].icon_figure=new ImageIcon("src\\main\\resources\\figure\\rook_w.png");
         cage[7][0].setIcon( cage[7][0].icon_figure);
-        cage[7][7].icon_figure=new ImageIcon("figure/rook_w.png");
+        cage[7][7].icon_figure=new ImageIcon("src\\main\\resources\\figure\\rook_w.png");
         cage[7][7].setIcon( cage[7][7].icon_figure);
 
 
@@ -123,14 +125,28 @@ public class Pole  extends JFrame{
 
 
     }
+    boolean  press_cell=false;
 
     public class ButtonListener extends AbstractAction// класс слушателя, должен  вызывать методы хода от игрока
     {
         @Override
         public void actionPerformed(ActionEvent e)
         {
-            JButton button=(JButton)e.getSource();
-            button.setBackground(Color.WHITE);
+            if(press_cell==false) {
+                Cell button = (Cell) e.getSource();
+                 int x= button.o_x;
+                 int y= button.o_y;
+                 Figure fig=button.figure_in_cell;
+                press_cell=true;
+            }else if(press_cell==true)
+             {
+                 Cell button = (Cell) e.getSource();
+                 int x_1= button.o_x;
+                 int y_1= button.o_y;
+                 Figure fig_1=button.figure_in_cell;
+                 press_cell=true;
+                 button.setBackground(Color.WHITE);
+             }
         }
     }
 
