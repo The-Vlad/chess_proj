@@ -126,31 +126,59 @@ public class Pole  extends JFrame{
 
     }
     boolean  press_cell=false;
+    Player player1= new Player('w');
+    Player player2=new Player('b');
+    public Icon image_in_cell_to_pawn(Cell ob)
+    {
+        if( ob.figure_in_cell==null )
+        {
+            ob.icon_figure=new ImageIcon("src\\main\\resources\\figure\\pawn_w.png");
+            ob.setIcon(ob.icon_figure);
+
+        }
+        return ob.icon_figure;
+    }
+
 
     public class ButtonListener extends AbstractAction// класс слушателя, должен  вызывать методы хода от игрока
     {
+        int x =0;
+        int y =0;
+        Figure fig=null;
         @Override
+
         public void actionPerformed(ActionEvent e)
         {
+
+
+            Cell button = (Cell) e.getSource();
             if(press_cell==false) {
-                Cell button = (Cell) e.getSource();
-                 int x= button.o_x;
-                 int y= button.o_y;
-                 Figure fig=button.figure_in_cell;
+
+                x= button.o_x;
+                y= button.o_y;
+                fig=button.figure_in_cell;
+
+
                 press_cell=true;
             }else if(press_cell==true)
              {
-                 Cell button = (Cell) e.getSource();
-                 int x_1= button.o_x;
-                 int y_1= button.o_y;
-                 Figure fig_1=button.figure_in_cell;
+
+                 Cell button1 = (Cell) e.getSource();
+                 int x_1= button1.o_x;
+                 int y_1= button1.o_y;
+                 Figure fig_1=button1.figure_in_cell;
                  press_cell=true;
-                 button.setBackground(Color.WHITE);
+                 boolean turn_correrct =player1.move(x,y,fig,x_1,y_1,fig_1);
+                 if(turn_correrct==true) {
+                     image_in_cell_to_pawn(button1);
+                     button.setBackground(Color.WHITE);
+                     button.icon_figure=null;
+                 }
              }
         }
     }
 
-    /*public static void main(String[] args) {
-        Pole ob=new Pole();
-    }*/
+//    public static void main(String[] args) {
+////        Pole ob=new Pole();
+////    }
 }
