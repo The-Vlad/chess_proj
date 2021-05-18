@@ -124,14 +124,49 @@ public class Pole  extends JFrame{
 
     }
 
+     boolean press_cell= false;
     public class ButtonListener extends AbstractAction// класс слушателя, должен  вызывать методы хода от игрока
     {
         @Override
         public void actionPerformed(ActionEvent e)
         {
-            JButton button=(JButton)e.getSource();
-            button.setBackground(Color.WHITE);
+            int x=0;
+            int y=0;
+            Figure fig=null ;
+
+            Cell button = (Cell) e.getSource();
+            if(press_cell==false) {
+                x = button.o_x;
+                y = button.o_y;
+                fig = button.figure_in_cell;
+                press_cell = true;
+            }
+            else if(press_cell==true)
+            {
+                Cell button1 = (Cell) e.getSource();
+                int x_1= button1.o_x;
+                int y_1= button1.o_y;
+                Figure fig_1=button1.figure_in_cell;
+                press_cell=false;
+                button1.setBackground(Color.WHITE);
+
+               Player move(x,y,fig,x_1,y_1,fig_1);
+                image_in_cell_to_pawn(button1);
+                image_in_cell_to_pawn(button);
+                button1.figure_in_cell=null;
+            }
         }
+    }
+    public Icon image_in_cell_to_pawn(Cell ob) {
+        if (ob.figure_in_cell == null) {
+            ob.icon_figure = new ImageIcon("src/main/resources/figure/pawn_w.png");
+            ob.setIcon(ob.icon_figure);
+        }
+         else if (ob.figure_in_cell !=null) {
+            ob.icon_figure = new ImageIcon("src/main/resources/figure/pawn_w.png");
+            ob.setIcon(ob.icon_figure);
+        }
+        return ob.icon_figure;
     }
 
     /*public static void main(String[] args) {
