@@ -22,12 +22,6 @@ public class Pole  extends JFrame{
                 cage[i][j].addActionListener(action);//  подключаем слушателя
 
                 cage[i][j].setPreferredSize(new Dimension(100,100));
-                if ((i + j) % 2 == 0) {
-                    cage[i][j].setBackground(new Color(247,238,155));
-                }
-                else {
-                    cage[i][j].setBackground(new Color(144,144,144));
-                }
             }
         }
 
@@ -51,26 +45,13 @@ public class Pole  extends JFrame{
         for(int i=0;i<8;i++)
         {
             cage[1][i].figure_in_cell=new Pawn('b');
-            cage[1][i].icon_figure= new ImageIcon("src/main/resources/figure/pawn.png");
-            cage[1][i].setIcon(cage[1][i].icon_figure);
         }
 
-        cage[0][2].icon_figure=new ImageIcon("src/main/resources/figure/bishop.png");
-        cage[0][2].setIcon( cage[0][2].icon_figure);
-        cage[0][5].icon_figure=new ImageIcon("src/main/resources/figure/bishop.png");
-        cage[0][5].setIcon( cage[0][5].icon_figure);
-        cage[0][1].icon_figure=new ImageIcon("src/main/resources/figure/knight.png");
-        cage[0][1].setIcon( cage[0][1].icon_figure);
-        cage[0][6].icon_figure=new ImageIcon("src/main/resources/figure/knight.png");
-        cage[0][6].setIcon( cage[0][6].icon_figure);
-        cage[0][4].icon_figure=new ImageIcon("src/main/resources/figure/king.png");
-        cage[0][4].setIcon( cage[0][4].icon_figure);
-        cage[0][3].icon_figure=new ImageIcon("src/main/resources/figure/queen.png");
-        cage[0][3].setIcon( cage[0][3].icon_figure);
-        cage[0][0].icon_figure=new ImageIcon("src/main/resources/figure/rook.png");
-        cage[0][0].setIcon( cage[0][0].icon_figure);
-        cage[0][7].icon_figure=new ImageIcon("src/main/resources/figure/rook.png");
-        cage[0][7].setIcon( cage[0][7].icon_figure);
+        for(int i = 0; i < 2; i++) {
+            for(int j = 0; j < 8; j++) {
+                cage[i][j].setIcon(cage[i][j].figure_in_cell.icon_figure);
+            }
+        }
 
         //white figure
         cage[7][0].figure_in_cell= new Rook('w');
@@ -81,30 +62,16 @@ public class Pole  extends JFrame{
         cage[7][5].figure_in_cell= new Bishop('w');
         cage[7][6].figure_in_cell= new Knight('w');
         cage[7][7].figure_in_cell= new Rook('w');
-
         for(int i=0;i<8;i++)
         {
             cage[6][i].figure_in_cell=new Pawn('w');
-            cage[6][i].icon_figure= new ImageIcon("src/main/resources/figure/pawn_w.png");
-            cage[6][i].setIcon(cage[6][i].icon_figure);
         }
-        cage[7][2].icon_figure=new ImageIcon("src/main/resources/figure/bishop_w.png");
-        cage[7][2].setIcon( cage[7][2].icon_figure);
-        cage[7][5].icon_figure=new ImageIcon("src/main/resources/figure/bishop_w.png");
-        cage[7][5].setIcon( cage[7][5].icon_figure);
-        cage[7][1].icon_figure=new ImageIcon("src/main/resources/figure/knight_w.png");
-        cage[7][1].setIcon( cage[7][1].icon_figure);
-        cage[7][6].icon_figure=new ImageIcon("src/main/resources/figure/knight_w.png");
-        cage[7][6].setIcon( cage[7][6].icon_figure);
-        cage[7][4].icon_figure=new ImageIcon("src/main/resources/figure/king_w.png");
-        cage[7][4].setIcon( cage[7][4].icon_figure);
-        cage[7][3].icon_figure=new ImageIcon("src/main/resources/figure/queen_w.png");
-        cage[7][3].setIcon( cage[7][3].icon_figure);
-        cage[7][0].icon_figure=new ImageIcon("src/main/resources/figure/rook_w.png");
-        cage[7][0].setIcon( cage[7][0].icon_figure);
-        cage[7][7].icon_figure=new ImageIcon("src/main/resources/figure/rook_w.png");
-        cage[7][7].setIcon( cage[7][7].icon_figure);
 
+        for(int i = 6; i < 8; i++) {
+            for(int j = 0; j < 8; j++) {
+                cage[i][j].setIcon(cage[i][j].figure_in_cell.icon_figure);
+            }
+        }
 
 
         if(cage[1][1].figure_in_cell instanceof Pawn && cage[1][1].figure_in_cell.color_figure=='b')// пример проверки
@@ -122,6 +89,14 @@ public class Pole  extends JFrame{
         //pack();
 
 
+    }
+
+    public void updatePole() {
+        for (int i = 0; i < 8; i++) {
+            for (int j = 0; j < 8; j++) {
+                cage[i][j].updateColor();
+            }
+        }
     }
 
     public class ButtonListener extends AbstractAction// класс слушателя, должен  вызывать методы хода от игрока
