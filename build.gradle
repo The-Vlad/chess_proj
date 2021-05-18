@@ -22,6 +22,7 @@ dependencies {
     testImplementation 'junit:junit:4.13'
 
     implementation 'com.intellij:forms_rt:7.0.3'
+    implementation group: 'org.json', name: 'json', version: '20210307'
 }
 
 application {
@@ -38,3 +39,5 @@ shadowJar {
 javadoc {
     options.tags = [ "noinspection" ]
 }
+
+compileJava.options.encoding = 'UTF-8'
