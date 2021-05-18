@@ -1,8 +1,8 @@
 package chessgame;
 
 /**
- * @author Naumov V.V.
  * Class for representing a vector of integers
+ * @author Naumov V.V.
  */
 public class Vector2i {
     public int x;

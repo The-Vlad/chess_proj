@@ -1,8 +1,9 @@
 package chessgame;
 
+
 /**
- * @author Naumov V.V.
  * Class for representing a vector of floats
+ * @author Naumov V.V.
  */
 public class Vector2f {
     public float x;
