@@ -91,6 +91,7 @@ public class Pole  extends JFrame{
 
     }
 
+
     public void updatePole() {
         for (int i = 0; i < 8; i++) {
             for (int j = 0; j < 8; j++) {
@@ -99,13 +100,52 @@ public class Pole  extends JFrame{
         }
     }
 
+    boolean press_cell= false;
+    Cell button;
     public class ButtonListener extends AbstractAction// класс слушателя, должен  вызывать методы хода от игрока
     {
         @Override
         public void actionPerformed(ActionEvent e)
         {
-            JButton button=(JButton)e.getSource();
-            button.setBackground(Color.WHITE);
+            int x=0;
+            int y=0;
+            Figure fig=null ;
+
+            if(press_cell==false) {
+                button = (Cell) e.getSource();
+                fig = button.figure_in_cell;
+                press_cell = true;
+            }
+            else
+            {
+                Cell button1 = (Cell) e.getSource();
+                int x_1= button1.o_x;
+                int y_1= button1.o_y;
+                Figure fig_1=button1.figure_in_cell;
+                press_cell=false;
+//                button1.setBackground(Color.WHITE);
+
+               Player.move(button,button1);
+//                button1.figure_in_cell=null;
+
+                changeImageInCell(button);
+                changeImageInCell(button1);
+            }
+        }
+    }
+
+    // Почему метод возвращает Icon?
+    public Icon changeImageInCell(Cell ob) {
+        if (ob.figure_in_cell == null) {
+            ob.setIcon(null);
+            return null;
+        }
+        else {
+            ob.setIcon(ob.figure_in_cell.icon_figure);
+            System.out.println(ob.o_x);
+            System.out.println(ob.o_y);
+//            System.out.println(ob.getIcon().toString());
+            return ob.figure_in_cell.icon_figure;
         }
     }
 

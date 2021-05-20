@@ -7,7 +7,7 @@ import java.awt.*;
 
 public class Cell extends JButton {
 
-    public Figure figure_in_cell;
+    public Figure figure_in_cell=null;
     public int o_x;
     public int o_y;
     public Color color;
@@ -35,5 +35,4 @@ public class Cell extends JButton {
         }
         this.setBackground(color);
     }
-
 }
