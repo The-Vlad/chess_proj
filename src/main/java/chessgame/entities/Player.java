@@ -20,17 +20,14 @@ public class Player {
         }
 
     }
-     static public boolean move(int x_in_cell,int y_in_cell,Figure figure_in_cell, int x_cell_to_move, int y_cell_to_move,Figure figure_in_cell_to_move)//x=y and y=x to coord
+     static public boolean move(Cell cell,Cell cell_to_move)
     {
-        System.out.println(figure_in_cell);
-        if (figure_in_cell instanceof Pawn) {
+        if (cell.figure_in_cell instanceof Pawn) {
 
-            if (figure_in_cell.color_figure == 'w') {
-                System.out.println("Hello world!");
-                if ((y_in_cell == y_cell_to_move && x_in_cell - 1 == y_cell_to_move) || (y_in_cell == y_cell_to_move && x_in_cell - 2 == x_cell_to_move)) {
-                    figure_in_cell = null;
-                    figure_in_cell_to_move = figure_in_cell;
-                    System.out.println("Hello world!");
+            if (cell.figure_in_cell.color_figure == 'w') {
+                if (cell.o_y == cell_to_move.o_y && (cell.o_x - 1 == cell_to_move.o_x || cell.o_x - 2 == cell_to_move.o_x)) {
+                    cell_to_move.figure_in_cell = cell.figure_in_cell;
+                    cell.figure_in_cell = null;
                     return true;
 
                 }

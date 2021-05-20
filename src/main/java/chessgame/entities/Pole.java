@@ -22,12 +22,6 @@ public class Pole  extends JFrame{
                 cage[i][j].addActionListener(action);//  подключаем слушателя
 
                 cage[i][j].setPreferredSize(new Dimension(100,100));
-                if ((i + j) % 2 == 0) {
-                    cage[i][j].setBackground(new Color(247,238,155));
-                }
-                else {
-                    cage[i][j].setBackground(new Color(144,144,144));
-                }
             }
         }
 
@@ -51,26 +45,13 @@ public class Pole  extends JFrame{
         for(int i=0;i<8;i++)
         {
             cage[1][i].figure_in_cell=new Pawn('b');
-            cage[1][i].icon_figure= new ImageIcon("src/main/resources/figure/pawn.png");
-            cage[1][i].setIcon(cage[1][i].icon_figure);
         }
 
-        cage[0][2].icon_figure=new ImageIcon("src/main/resources/figure/bishop.png");
-        cage[0][2].setIcon( cage[0][2].icon_figure);
-        cage[0][5].icon_figure=new ImageIcon("src/main/resources/figure/bishop.png");
-        cage[0][5].setIcon( cage[0][5].icon_figure);
-        cage[0][1].icon_figure=new ImageIcon("src/main/resources/figure/knight.png");
-        cage[0][1].setIcon( cage[0][1].icon_figure);
-        cage[0][6].icon_figure=new ImageIcon("src/main/resources/figure/knight.png");
-        cage[0][6].setIcon( cage[0][6].icon_figure);
-        cage[0][4].icon_figure=new ImageIcon("src/main/resources/figure/king.png");
-        cage[0][4].setIcon( cage[0][4].icon_figure);
-        cage[0][3].icon_figure=new ImageIcon("src/main/resources/figure/queen.png");
-        cage[0][3].setIcon( cage[0][3].icon_figure);
-        cage[0][0].icon_figure=new ImageIcon("src/main/resources/figure/rook.png");
-        cage[0][0].setIcon( cage[0][0].icon_figure);
-        cage[0][7].icon_figure=new ImageIcon("src/main/resources/figure/rook.png");
-        cage[0][7].setIcon( cage[0][7].icon_figure);
+        for(int i = 0; i < 2; i++) {
+            for(int j = 0; j < 8; j++) {
+                cage[i][j].setIcon(cage[i][j].figure_in_cell.icon_figure);
+            }
+        }
 
         //white figure
         cage[7][0].figure_in_cell= new Rook('w');
@@ -81,30 +62,16 @@ public class Pole  extends JFrame{
         cage[7][5].figure_in_cell= new Bishop('w');
         cage[7][6].figure_in_cell= new Knight('w');
         cage[7][7].figure_in_cell= new Rook('w');
-
         for(int i=0;i<8;i++)
         {
             cage[6][i].figure_in_cell=new Pawn('w');
-            cage[6][i].icon_figure= new ImageIcon("src/main/resources/figure/pawn_w.png");
-            cage[6][i].setIcon(cage[6][i].icon_figure);
         }
-        cage[7][2].icon_figure=new ImageIcon("src/main/resources/figure/bishop_w.png");
-        cage[7][2].setIcon( cage[7][2].icon_figure);
-        cage[7][5].icon_figure=new ImageIcon("src/main/resources/figure/bishop_w.png");
-        cage[7][5].setIcon( cage[7][5].icon_figure);
-        cage[7][1].icon_figure=new ImageIcon("src/main/resources/figure/knight_w.png");
-        cage[7][1].setIcon( cage[7][1].icon_figure);
-        cage[7][6].icon_figure=new ImageIcon("src/main/resources/figure/knight_w.png");
-        cage[7][6].setIcon( cage[7][6].icon_figure);
-        cage[7][4].icon_figure=new ImageIcon("src/main/resources/figure/king_w.png");
-        cage[7][4].setIcon( cage[7][4].icon_figure);
-        cage[7][3].icon_figure=new ImageIcon("src/main/resources/figure/queen_w.png");
-        cage[7][3].setIcon( cage[7][3].icon_figure);
-        cage[7][0].icon_figure=new ImageIcon("src/main/resources/figure/rook_w.png");
-        cage[7][0].setIcon( cage[7][0].icon_figure);
-        cage[7][7].icon_figure=new ImageIcon("src/main/resources/figure/rook_w.png");
-        cage[7][7].setIcon( cage[7][7].icon_figure);
 
+        for(int i = 6; i < 8; i++) {
+            for(int j = 0; j < 8; j++) {
+                cage[i][j].setIcon(cage[i][j].figure_in_cell.icon_figure);
+            }
+        }
 
 
         if(cage[1][1].figure_in_cell instanceof Pawn && cage[1][1].figure_in_cell.color_figure=='b')// пример проверки
@@ -124,7 +91,17 @@ public class Pole  extends JFrame{
 
     }
 
-     boolean press_cell= false;
+
+    public void updatePole() {
+        for (int i = 0; i < 8; i++) {
+            for (int j = 0; j < 8; j++) {
+                cage[i][j].updateColor();
+            }
+        }
+    }
+
+    boolean press_cell= false;
+    Cell button;
     public class ButtonListener extends AbstractAction// класс слушателя, должен  вызывать методы хода от игрока
     {
         @Override
@@ -134,39 +111,42 @@ public class Pole  extends JFrame{
             int y=0;
             Figure fig=null ;
 
-            Cell button = (Cell) e.getSource();
             if(press_cell==false) {
-                x = button.o_x;
-                y = button.o_y;
+                button = (Cell) e.getSource();
                 fig = button.figure_in_cell;
                 press_cell = true;
             }
-            else if(press_cell==true)
+            else
             {
                 Cell button1 = (Cell) e.getSource();
                 int x_1= button1.o_x;
                 int y_1= button1.o_y;
                 Figure fig_1=button1.figure_in_cell;
                 press_cell=false;
-                button1.setBackground(Color.WHITE);
+//                button1.setBackground(Color.WHITE);
 
-               Player move(x,y,fig,x_1,y_1,fig_1);
-                image_in_cell_to_pawn(button1);
-                image_in_cell_to_pawn(button);
-                button1.figure_in_cell=null;
+               Player.move(button,button1);
+//                button1.figure_in_cell=null;
+
+                changeImageInCell(button);
+                changeImageInCell(button1);
             }
         }
     }
-    public Icon image_in_cell_to_pawn(Cell ob) {
+
+    // Почему метод возвращает Icon?
+    public Icon changeImageInCell(Cell ob) {
         if (ob.figure_in_cell == null) {
-            ob.icon_figure = new ImageIcon("src/main/resources/figure/pawn_w.png");
-            ob.setIcon(ob.icon_figure);
+            ob.setIcon(null);
+            return null;
         }
-         else if (ob.figure_in_cell !=null) {
-            ob.icon_figure = new ImageIcon("src/main/resources/figure/pawn_w.png");
-            ob.setIcon(ob.icon_figure);
+        else {
+            ob.setIcon(ob.figure_in_cell.icon_figure);
+            System.out.println(ob.o_x);
+            System.out.println(ob.o_y);
+//            System.out.println(ob.getIcon().toString());
+            return ob.figure_in_cell.icon_figure;
         }
-        return ob.icon_figure;
     }
 
     /*public static void main(String[] args) {

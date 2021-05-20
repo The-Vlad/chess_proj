@@ -2,7 +2,14 @@ package chessgame.entities;
 
 public class Rook extends Figure {
     public Rook(char color) {
-        super("Rook");
-        color_figure=color;
+        super("Rook", color);
+    }
+
+    @Override
+    public String getIconName() {
+        if (this.color_figure == 'w') {
+            return "rook_w";
+        }
+        return "rook";
     }
 }

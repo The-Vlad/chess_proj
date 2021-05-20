@@ -1,0 +1,14 @@
+{
+  "pole-themes": {
+    "base": {
+      "white": [255, 255, 255],
+      "black": [0, 0, 0]
+    }
+  },
+  "figure-themes": {
+    "base": "src/main/resources/figure/base"
+  },
+
+  "pole-active-theme": "base",
+  "figure-active-theme": "base"
+}
