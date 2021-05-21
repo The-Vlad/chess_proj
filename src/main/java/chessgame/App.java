@@ -6,6 +6,7 @@ package chessgame;
 import chessgame.windows.*;
 
 import javax.swing.*;
+import java.awt.*;
 
 /**
  * Class - enter point to an application
@@ -29,10 +30,15 @@ public class App extends JFrame implements IWindow{
         game = new GameForm(this);
         menu = new MenuForm(this);
 
-        this.setContentPane(menu.menu_panel);
+        this.setContentPane(menu.getMainPanel());
         this.pack();
         this.setVisible(true);
         this.setSize(default_size.x, default_size.y);
+    }
+
+    @Override
+    public Container getMainPanel() {
+        return getContentPane(); // наверное?
     }
 
     /**

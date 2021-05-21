@@ -3,9 +3,9 @@ package chessgame.windows;
 import org.json.JSONArray;
 import org.json.JSONObject;
 
+import java.awt.*;
 import java.util.HashMap;
 import java.util.Map;
-import java.awt.Color;
 import java.io.IOException;
 import java.nio.file.Files;
 import java.nio.file.Path;
@@ -51,4 +51,8 @@ public class Settings implements IWindow {
         return map;
     }
 
+    @Override
+    public Container getMainPanel() {
+        return null;
+    }
 }

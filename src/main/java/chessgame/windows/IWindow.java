@@ -19,4 +19,6 @@ public interface IWindow {
      */
     Color background_color = new Color(247,238,155);
     Color background_color2 = new Color(144,144,144);
+
+    public Container getMainPanel();
 }
