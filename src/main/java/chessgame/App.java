@@ -13,6 +13,7 @@ import javax.swing.*;
 public class App extends JFrame implements IWindow{
     public GameForm game;
     public MenuForm menu;
+    public Settings settings;
 
     /**
      * Constructor that creates window
@@ -28,6 +29,7 @@ public class App extends JFrame implements IWindow{
     public void go() {
         game = new GameForm(this);
         menu = new MenuForm(this);
+        settings = new Settings(this);
 
         this.setContentPane(menu.menu_panel);
         this.pack();

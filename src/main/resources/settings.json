@@ -1,14 +1,34 @@
 {
-  "pole-themes": {
-    "base": {
-      "white": [255, 255, 255],
-      "black": [0, 0, 0]
+      "pole-themes": {
+        "magenta": {
+          "white": [
+            245,
+            245,
+            245
+          ],
+          "black": [
+            255,
+            0,
+            255
+          ]
+        },
+        "base": {
+          "white": [
+            255,
+            255,
+            255
+          ],
+          "black": [
+            0,
+            0,
+            0
+          ]
+        }
+      },
+      "pole-active-theme": "magenta",
+      "figure-themes": {
+        "another": "src/main/resources/figure/base",
+        "base": "src/main/resources/figure/base"
+      },
+      "figure-active-theme": "another"
     }
-  },
-  "figure-themes": {
-    "base": "src/main/resources/figure/base"
-  },
-
-  "pole-active-theme": "base",
-  "figure-active-theme": "base"
-}
