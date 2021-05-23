@@ -26,7 +26,7 @@ public class Cell extends JButton {
         this.setBackground(color);
     }
 
-    public void updateColor() {
+    public void updateTheme() {
         if ((o_x + o_y) % 2 == 0) {
             color = Settings.getPoleTheme().get("white");
         }
@@ -34,5 +34,9 @@ public class Cell extends JButton {
             color = Settings.getPoleTheme().get("black");
         }
         this.setBackground(color);
+        if (figure_in_cell != null) {
+            figure_in_cell.updateIcon();
+            setIcon(figure_in_cell.icon_figure);
+        }
     }
 }
