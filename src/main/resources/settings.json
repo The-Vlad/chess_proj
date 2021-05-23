@@ -27,8 +27,8 @@
       },
       "pole-active-theme": "magenta",
       "figure-themes": {
-        "another": "src/main/resources/figure/base",
+        "sus": "src/main/resources/figure/sus",
         "base": "src/main/resources/figure/base"
       },
-      "figure-active-theme": "another"
+      "figure-active-theme": "sus"
     }
