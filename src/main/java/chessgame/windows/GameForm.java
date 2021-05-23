@@ -7,6 +7,8 @@ import com.intellij.uiDesigner.core.GridLayoutManager;
 import com.intellij.uiDesigner.core.Spacer;
 
 import javax.swing.*;
+import javax.swing.event.AncestorEvent;
+import javax.swing.event.AncestorListener;
 import java.awt.*;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
@@ -43,6 +45,25 @@ public class GameForm extends JFrame implements IWindow {
                 application.setVisible(true);
             }
         });
+
+        // этот слушатель срабатывает, когда окно становится активным
+        game_panel.addAncestorListener ( new AncestorListener()
+        {
+            public void ancestorAdded ( AncestorEvent event )
+            {
+                pole.updatePole();
+            }
+
+            public void ancestorRemoved ( AncestorEvent event )
+            {
+
+            }
+
+            public void ancestorMoved ( AncestorEvent event )
+            {
+                // Component container moved
+            }
+        } );
     }
 
     {
