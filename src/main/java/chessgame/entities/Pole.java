@@ -95,7 +95,7 @@ public class Pole  extends JFrame{
     public void updatePole() {
         for (int i = 0; i < 8; i++) {
             for (int j = 0; j < 8; j++) {
-                cage[i][j].updateColor();
+                cage[i][j].updateTheme();
             }
         }
     }
