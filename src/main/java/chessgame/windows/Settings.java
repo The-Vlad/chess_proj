@@ -507,8 +507,4 @@ public class Settings implements IWindow {
             setBackground(DISABLEDCOLOR);
         }
     }
-    @Override
-    public Container getMainPanel() {
-        return null;
-    }
 }
