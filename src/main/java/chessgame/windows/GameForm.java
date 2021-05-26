@@ -31,7 +31,7 @@ public class GameForm extends JFrame implements IWindow {
      */
     public GameForm(App application) {
         pole = new Pole();
-        board_panel.add(pole.pole_panel);
+        board_panel.add(pole);
 
         toMenuButton.addActionListener(new ActionListener() {
             /**
