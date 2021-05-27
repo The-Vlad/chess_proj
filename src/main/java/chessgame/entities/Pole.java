@@ -123,10 +123,7 @@ public class Pole  extends JFrame{
                 int y_1= button1.o_y;
                 Figure fig_1=button1.figure_in_cell;
                 press_cell=false;
-//                button1.setBackground(Color.WHITE);
-
                Player.move(button,button1);
-//                button1.figure_in_cell=null;
 
                 changeImageInCell(button);
                 changeImageInCell(button1);
@@ -142,8 +139,6 @@ public class Pole  extends JFrame{
         }
         else {
             ob.setIcon(ob.figure_in_cell.icon_figure);
-            System.out.println(ob.o_x);
-            System.out.println(ob.o_y);
 //            System.out.println(ob.getIcon().toString());
             return ob.figure_in_cell.icon_figure;
         }

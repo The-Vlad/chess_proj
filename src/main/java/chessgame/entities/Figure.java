@@ -13,7 +13,6 @@ import javax.swing.*;
 public abstract class Figure {
     public String name_figure;
     public char color_figure;
-
     public Icon icon_figure;
 
     public Figure(String name_figure, char color) {
@@ -31,6 +30,8 @@ public abstract class Figure {
      * @return название файла иконки без расширения
      */
     public abstract String getIconName();
+
+    public abstract boolean move_check(Cell cell,Cell cellToMove);
 
     public static void main(String[] args) {
 //        Figure figure = new Figure("name");

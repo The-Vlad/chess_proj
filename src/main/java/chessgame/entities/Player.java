@@ -22,17 +22,7 @@ public class Player {
     }
      static public boolean move(Cell cell,Cell cell_to_move)
     {
-        if (cell.figure_in_cell instanceof Pawn) {
-
-            if (cell.figure_in_cell.color_figure == 'w') {
-                if (cell.o_y == cell_to_move.o_y && (cell.o_x - 1 == cell_to_move.o_x || cell.o_x - 2 == cell_to_move.o_x)) {
-                    cell_to_move.figure_in_cell = cell.figure_in_cell;
-                    cell.figure_in_cell = null;
-                    return true;
-
-                }
-            }
-        }
+        cell.figure_in_cell.move_check(cell,cell_to_move);
         return false;
     }
 }

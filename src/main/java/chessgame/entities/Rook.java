@@ -12,4 +12,8 @@ public class Rook extends Figure {
         }
         return "rook";
     }
+    public  boolean move_check(Cell cell,Cell cellToMove)
+    {
+     return  false;
+    }
 }

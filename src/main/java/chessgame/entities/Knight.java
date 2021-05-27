@@ -12,4 +12,34 @@ public class Knight extends Figure {
         }
         return "knight";
     }
+    public  boolean move_check(Cell cell,Cell cell_to_move)
+    {
+        if(cell.figure_in_cell.color_figure=='w') {
+            if ((cell_to_move.figure_in_cell == null) || (cell_to_move.figure_in_cell.color_figure == 'b')) {
+                if (((cell.o_x - 2 == cell_to_move.o_x) && ((cell.o_y - 1 == cell_to_move.o_y) || (cell.o_y + 1 == cell_to_move.o_y))) ||
+                        ((cell.o_x - 1 == cell_to_move.o_x) && ((cell.o_y - 2 == cell_to_move.o_y) || (cell.o_y + 2 == cell_to_move.o_y))) ||
+                        ((cell.o_x + 1 == cell_to_move.o_x) && ((cell.o_y - 2 == cell_to_move.o_y) || (cell.o_y + 2 == cell_to_move.o_y))) ||
+                        ((cell.o_x + 2 == cell_to_move.o_x) && ((cell.o_y - 1 == cell_to_move.o_y) || (cell.o_y + 1 == cell_to_move.o_y)))
+                ) {
+                    cell_to_move.figure_in_cell = cell.figure_in_cell;
+                    cell.figure_in_cell = null;
+                    return true;
+                }
+            }
+            } else if (cell.figure_in_cell.color_figure == 'b') {
+                if ((cell_to_move.figure_in_cell == null) || (cell_to_move.figure_in_cell.color_figure == 'w')) {
+                    if (((cell.o_x - 2 == cell_to_move.o_x) && ((cell.o_y - 1 == cell_to_move.o_y) || (cell.o_y + 1 == cell_to_move.o_y))) ||
+                            ((cell.o_x - 1 == cell_to_move.o_x) && ((cell.o_y - 2 == cell_to_move.o_y) || (cell.o_y + 2 == cell_to_move.o_y))) ||
+                            ((cell.o_x + 1 == cell_to_move.o_x) && ((cell.o_y - 2 == cell_to_move.o_y) || (cell.o_y + 2 == cell_to_move.o_y))) ||
+                            ((cell.o_x + 2 == cell_to_move.o_x) && ((cell.o_y - 1 == cell_to_move.o_y) || (cell.o_y + 1 == cell_to_move.o_y)))
+                    ) {
+                        cell_to_move.figure_in_cell = cell.figure_in_cell;
+                        cell.figure_in_cell = null;
+                        return true;
+                    }
+
+                }
+            }
+       return false;
+    }
 }

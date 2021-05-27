@@ -12,4 +12,8 @@ public class Queen extends Figure {
         }
         return "queen";
     }
+    public  boolean move_check(Cell cell,Cell cellToMove)
+    {
+        return  false;
+    }
 }
