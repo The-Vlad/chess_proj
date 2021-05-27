@@ -43,9 +43,19 @@ public class MenuForm extends JFrame implements IWindow {
 
     /**
      * Constructor that defines listeners to the components
+     *
      * @param application reference to the application window
      */
     public MenuForm(App application) {
+        menu_panel.setBackground(background_color2);
+        l_main_panel.setBackground(background_color2);
+        l_top_panel.setBackground(background_color);
+        l_bottom_panel.setBackground(background_color);
+        r_main_panel.setBackground(background_color2);
+        r_top_panel.setBackground(background_color);
+        r_middle_panel.setBackground(background_color);
+        r_bottom_panel.setBackground(background_color);
+
         exit_button.addActionListener(new ActionListener() {
             /**
              * Invoked when an action occurs.
@@ -66,10 +76,27 @@ public class MenuForm extends JFrame implements IWindow {
              */
             @Override
             public void actionPerformed(ActionEvent e) {
-               application.setContentPane(application.game.game_panel);
-               application.setVisible(true);
+                application.setContentPane(application.game.game_panel);
+                application.setVisible(true);
             }
         });
+
+        settings_button.addActionListener(new ActionListener() {
+            /**
+             * Invoked when an action occurs.
+             *
+             * @param e the event to be processed
+             */
+            @Override
+            public void actionPerformed(ActionEvent e) {
+                application.setContentPane(application.settings.getMainPanel());
+                application.setVisible(true);
+            }
+        });
+    }
+
+    public Container getMainPanel() {
+        return menu_panel;
     }
 
     {
@@ -233,4 +260,5 @@ public class MenuForm extends JFrame implements IWindow {
     public JComponent $$$getRootComponent$$$() {
         return menu_panel;
     }
+
 }

@@ -23,18 +23,20 @@ public class Player {
         }
 
     }
-
-    public  void move(int x_in_cell,int y_in_cell,Figure figure_in_cell, int x_cell_to_move, int y_cell_to_move,Figure figure_in_cell_to_move)
+     static public boolean move(Cell cell,Cell cell_to_move)
     {
-        if(figure_in_cell instanceof Pawn)
-        {
-            if(((Pawn) figure_in_cell).first_move==true  && figure_in_cell.color_figure=='w')
-            {
+        if (cell.figure_in_cell instanceof Pawn) {
 
+            if (cell.figure_in_cell.color_figure == 'w') {
+                if (cell.o_y == cell_to_move.o_y && (cell.o_x - 1 == cell_to_move.o_x || cell.o_x - 2 == cell_to_move.o_x)) {
+                    cell_to_move.figure_in_cell = cell.figure_in_cell;
+                    cell.figure_in_cell = null;
+                    return true;
+
+                }
             }
-
         }
-
+        return false;
     }
 
 

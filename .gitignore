@@ -1,8 +1,9 @@
-/.idea
 /out
 chess.iml
 /build
+/.idea
 #/src/main/resources
 #/src/test/resources
-/.gitignore
-
+/.gradle
+/javadoc
+/src/main/resources/settings.json

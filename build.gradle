@@ -22,9 +22,7 @@ dependencies {
     testImplementation 'junit:junit:4.13'
 
     implementation 'com.intellij:forms_rt:7.0.3'
-
-    // This dependency is used by the application.
-    implementation 'com.google.guava:guava:29.0-jre'
+    implementation group: 'org.json', name: 'json', version: '20210307'
 }
 
 application {
@@ -37,3 +35,9 @@ shadowJar {
     libsDirName = "generated-shadow-jar-${project.name}"
     classifier('')
 }
+
+javadoc {
+    options.tags = [ "noinspection" ]
+}
+
+compileJava.options.encoding = 'UTF-8'

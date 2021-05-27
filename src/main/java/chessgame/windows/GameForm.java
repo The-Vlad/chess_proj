@@ -1,12 +1,16 @@
 package chessgame.windows;
 
 import chessgame.App;
+import chessgame.entities.Cell;
+import chessgame.entities.Player;
 import chessgame.entities.Pole;
 import com.intellij.uiDesigner.core.GridConstraints;
 import com.intellij.uiDesigner.core.GridLayoutManager;
 import com.intellij.uiDesigner.core.Spacer;
 
 import javax.swing.*;
+import javax.swing.event.AncestorEvent;
+import javax.swing.event.AncestorListener;
 import java.awt.*;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
@@ -28,8 +32,8 @@ public class GameForm extends JFrame implements IWindow {
      * @param application reference to the application window
      */
     public GameForm(App application) {
-        pole = new Pole();
-        board_panel.add(pole.pole_panel);
+        pole = new Pole(new ButtonListener());
+        board_panel.add(pole);
 
         toMenuButton.addActionListener(new ActionListener() {
             /**
@@ -43,6 +47,51 @@ public class GameForm extends JFrame implements IWindow {
                 application.setVisible(true);
             }
         });
+
+        // этот слушатель срабатывает, когда окно становится активным
+        game_panel.addAncestorListener ( new AncestorListener()
+        {
+            public void ancestorAdded ( AncestorEvent event )
+            {
+                pole.updatePole();
+            }
+
+            public void ancestorRemoved ( AncestorEvent event )
+            {
+
+            }
+
+            public void ancestorMoved ( AncestorEvent event )
+            {
+                // Component container moved
+            }
+        } );
+    }
+
+    public Container getMainPanel() {
+        return game_panel;
+    }
+
+    public class ButtonListener extends AbstractAction// класс слушателя, должен  вызывать методы хода от игрока
+    {
+        boolean press_cell = false;
+        Cell button;
+
+        @Override
+        public void actionPerformed(ActionEvent e) {
+            if (press_cell == false) {
+                button = (Cell) e.getSource();
+                press_cell = true;
+            } else {
+                Cell button1 = (Cell) e.getSource();
+                press_cell = false;;
+
+                Player.move(button, button1);
+
+                pole.changeImageInCell(button);
+                pole.changeImageInCell(button1);
+            }
+        }
     }
 
     {
