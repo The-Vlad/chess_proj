@@ -30,7 +30,7 @@ public class Settings implements IWindow {
     App application;
 
     private static JSONObject settings_object = Settings.getJSON(SETTINGSPATH);
-    private Pole pole = new Pole(300);
+    private Pole pole = new Pole(300, null);
     private JPanel settings_panel = new JPanel();
     private JPanel right_panel = new JPanel(new GridBagLayout());
     private ThemeScroller pole_theme_scroller = new ThemeScroller();

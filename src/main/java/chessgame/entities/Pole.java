@@ -6,13 +6,13 @@ import java.awt.event.ActionEvent;
 
 public class Pole extends JPanel {
     private Cell[][] cage = new Cell[9][9];
-    private Action action = new ButtonListener();
+    private Action action;
 
     /**
      * Создаёт поле с установленными фигурами
      * @param side длина стороны
      */
-    public Pole(int side) {
+    public Pole(int side, AbstractAction on_cell_click) {
         setPreferredSize(new Dimension(side, side));
 
         int base_icon_size = 60; // это так
@@ -29,6 +29,8 @@ public class Pole extends JPanel {
 
         //setDefaultCloseOperation(EXIT_ON_CLOSE);
         //setVisible(true);
+
+        action = on_cell_click;
 
         GridLayout layout = new GridLayout(8, 8, 0, 0);
         setLayout(layout);
@@ -83,7 +85,9 @@ public class Pole extends JPanel {
         }
     }
 
-    public Pole() {
+    public Pole(AbstractAction on_cell_click) {
+        this.action = on_cell_click;
+
         //super("Game");
         for (int i = 0; i < 8; i++) {
             for (int j = 0; j < 8; j++) {
@@ -141,11 +145,6 @@ public class Pole extends JPanel {
             }
         }
 
-
-        if (cage[1][1].figure_in_cell instanceof Pawn && cage[1][1].figure_in_cell.color_figure == 'b')// пример проверки
-        {
-        }
-
         for (int i = 0; i < 8; i++) {
             for (int j = 0; j < 8; j++) {
                 add(cage[i][j]);
@@ -162,38 +161,6 @@ public class Pole extends JPanel {
         for (int i = 0; i < 8; i++) {
             for (int j = 0; j < 8; j++) {
                 cage[i][j].updateTheme();
-            }
-        }
-    }
-
-    boolean press_cell = false;
-    Cell button;
-
-    public class ButtonListener extends AbstractAction// класс слушателя, должен  вызывать методы хода от игрока
-    {
-        @Override
-        public void actionPerformed(ActionEvent e) {
-            int x = 0;
-            int y = 0;
-            Figure fig = null;
-
-            if (press_cell == false) {
-                button = (Cell) e.getSource();
-                fig = button.figure_in_cell;
-                press_cell = true;
-            } else {
-                Cell button1 = (Cell) e.getSource();
-                int x_1 = button1.o_x;
-                int y_1 = button1.o_y;
-                Figure fig_1 = button1.figure_in_cell;
-                press_cell = false;
-//                button1.setBackground(Color.WHITE);
-
-                Player.move(button, button1);
-//                button1.figure_in_cell=null;
-
-                changeImageInCell(button);
-                changeImageInCell(button1);
             }
         }
     }
