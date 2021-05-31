@@ -10,6 +10,7 @@ public class Pole  extends JFrame{
      private Cell [][] cage= new Cell[9][9];
      private Action action= new ButtonListener();
 
+
     public Pole()
     {
         //super("Game");
@@ -98,7 +99,7 @@ public class Pole  extends JFrame{
                 cage[i][j].updateTheme();
             }
         }
-    }
+        }
 
     boolean press_cell= false;
     Cell button;
@@ -124,7 +125,6 @@ public class Pole  extends JFrame{
                 Figure fig_1=button1.figure_in_cell;
                 press_cell=false;
                Player.move(button,button1);
-
                 changeImageInCell(button);
                 changeImageInCell(button1);
             }
