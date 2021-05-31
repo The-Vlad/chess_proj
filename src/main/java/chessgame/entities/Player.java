@@ -6,6 +6,9 @@ import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import java.util.ArrayList;
 
+
+import chessgame.Vector3ifig;
+
 public class Player {
 
     ArrayList <Figure> mas_eating_figure= new ArrayList<Figure>();// массив в котором будут храниться съединные фигуры
@@ -25,4 +28,6 @@ public class Player {
         cell.figure_in_cell.move_check(cell,cell_to_move);
         return false;
     }
+
+
 }

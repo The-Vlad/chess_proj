@@ -2,6 +2,7 @@ package chessgame.windows;
 
 import chessgame.App;
 import chessgame.entities.Pawn;
+import chessgame.entities.Pole;
 import org.json.JSONArray;
 import org.json.JSONObject;
 
@@ -29,7 +30,7 @@ public class Settings implements IWindow {
     App application;
 
     private static JSONObject settings_object = Settings.getJSON(SETTINGSPATH);
-    private JPanel pole_panel = new JPanel();
+    private Pole pole = new Pole(300, null);
     private JPanel settings_panel = new JPanel();
     private JPanel right_panel = new JPanel(new GridBagLayout());
     private ThemeScroller pole_theme_scroller = new ThemeScroller();
@@ -110,11 +111,9 @@ public class Settings implements IWindow {
         this.application = application; // ссылка на application нужна только для перехода на другие окна
 
         settings_panel.setBackground(IWindow.background_color);
-        pole_panel.setOpaque(false);
         figure_theme_scroller.setOpaque(false);
         pole_theme_scroller.setOpaque(false);
         right_panel.setOpaque(false);
-
 
         // нудное размещение элементов
         settings_panel.setLayout(new GridBagLayout());
@@ -132,8 +131,8 @@ public class Settings implements IWindow {
         c.gridwidth = 2;
         c.weightx = 1;
         c.weighty = 1;
-        c.fill = GridBagConstraints.BOTH;
-        settings_panel.add(pole_panel, c);
+        //c.fill = GridBagConstraints.BOTH;
+        settings_panel.add(pole, c);
         c = new GridBagConstraints();
         c.gridx = 0;
         c.gridy = 2;
@@ -367,10 +366,13 @@ public class Settings implements IWindow {
             Border border = BorderFactory.createLineBorder(Color.BLACK, 2, true);
             setBorder(border);
 
+            // УСТАНОВКА ТЕМЫ
             addMouseListener(new MouseListener() {
                 @Override
                 public void mouseClicked(MouseEvent e) {
                     Settings.setFigureTheme(theme);
+
+                    pole.updatePole();
 
                     for (FigureThemeButton figure_button : figure_buttons) {
                         figure_button.setDisabled();
@@ -458,10 +460,14 @@ public class Settings implements IWindow {
             Border border = BorderFactory.createLineBorder(Color.BLACK, 2, true);
             setBorder(border);
 
+
+            // УСТАНОВКА ТЕМЫ
             addMouseListener(new MouseListener() {
                 @Override
                 public void mouseClicked(MouseEvent e) {
                     Settings.setPoleTheme(theme);
+
+                    pole.updatePole();
 
                     for (PoleThemeButton pole_button : pole_buttons) {
                         pole_button.setDisabled();

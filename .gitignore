@@ -6,3 +6,4 @@ chess.iml
 #/src/test/resources
 /.gradle
 /javadoc
+/src/main/resources/settings.json

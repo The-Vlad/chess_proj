@@ -1,6 +1,8 @@
 package chessgame.windows;
 
 import chessgame.App;
+import chessgame.entities.Cell;
+import chessgame.entities.Player;
 import chessgame.entities.Pole;
 import com.intellij.uiDesigner.core.GridConstraints;
 import com.intellij.uiDesigner.core.GridLayoutManager;
@@ -30,8 +32,8 @@ public class GameForm extends JFrame implements IWindow {
      * @param application reference to the application window
      */
     public GameForm(App application) {
-        pole = new Pole();
-        board_panel.add(pole.pole_panel);
+        pole = new Pole(new ButtonListener());
+        board_panel.add(pole);
 
         toMenuButton.addActionListener(new ActionListener() {
             /**
@@ -68,6 +70,34 @@ public class GameForm extends JFrame implements IWindow {
 
     public Container getMainPanel() {
         return game_panel;
+    }
+
+    public void makeTurn(Cell cell, Cell cell_to_move) {
+
+    }
+
+    public class ButtonListener extends AbstractAction// класс слушателя, должен  вызывать методы хода от игрока
+    {
+        boolean press_cell = false;
+        Cell button;
+
+        @Override
+        public void actionPerformed(ActionEvent e) {
+            if (press_cell == false) {
+                button = (Cell) e.getSource();
+                press_cell = true;
+            } else {
+                Cell button1 = (Cell) e.getSource();
+                press_cell = false;;
+
+                Player.move(button, button1);
+
+                makeTurn(button, button1);
+
+                pole.changeImageInCell(button);
+                pole.changeImageInCell(button1);
+            }
+        }
     }
 
     {
