@@ -1,12 +1,12 @@
 package chessgame.entities;
 
 public class Pawn extends Figure {
-    public Pawn(char color, double icon_scale) {
-        super("King", color, icon_scale);
+    public Pawn(char color, int o_x, int o_y, double icon_scale) {
+        super("King", color, o_x, o_y, icon_scale);
     }
 
-    public Pawn(char color) {
-        super("Pawn", color, 1);
+    public Pawn(char color, int o_x, int o_y) {
+        super("Pawn", color, o_x, o_y, 1);
     }
      public boolean first_move=false;
 

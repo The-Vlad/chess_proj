@@ -78,10 +78,7 @@ public class GameForm extends JFrame implements IWindow {
 
     public void makeTurn(Cell cell, Cell cell_to_move) {
 
-        cell_to_move.figure_in_cell = cell.figure_in_cell;
-        cell.figure_in_cell = null;
-        pole.changeImageInCell(cell);
-        pole.changeImageInCell(cell_to_move);
+        pole.moveFigure(cell, cell_to_move);
 
         if (current_player == white_player) {
             current_player = black_player;

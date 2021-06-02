@@ -2,12 +2,12 @@ package chessgame.entities;
 
 public class Rook extends Figure {
 
-    public Rook(char color, double icon_scale) {
-        super("Rook", color, icon_scale);
+    public Rook(char color, int o_x, int o_y, double icon_scale) {
+        super("Rook", color, o_x, o_y, icon_scale);
     }
 
-    public Rook(char color) {
-        super("Rook", color, 1);
+    public Rook(char color, int o_x, int o_y) {
+        super("Rook", color, o_x, o_y, 1);
     }
 
     @Override

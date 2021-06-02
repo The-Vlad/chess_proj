@@ -2,12 +2,12 @@ package chessgame.entities;
 
 public class Bishop extends Figure {
 
-    public Bishop(char color, double icon_scale) {
-        super("King", color, icon_scale);
+    public Bishop(char color, int o_x, int o_y, double icon_scale) {
+        super("King", color, o_x, o_y, icon_scale);
     }
 
-    public Bishop(char color) {
-        super("Bishop", color, 1);
+    public Bishop(char color, int o_x, int o_y) {
+        super("Bishop", color, o_x, o_y, 1);
     }
 
     @Override

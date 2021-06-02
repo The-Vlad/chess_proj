@@ -19,9 +19,14 @@ public abstract class Figure {
     private double icon_scale;
     public Icon icon_figure;
 
-    public Figure(String name_figure, char color, double icon_scale) {
+    public int o_x;
+    public int o_y;
+
+    public Figure(String name_figure, char color, int o_x, int o_y, double icon_scale) {
         this.name_figure = name_figure;
         this.color_figure = color;
+        this.o_x = o_x;
+        this.o_y = o_y;
         setIconScale(icon_scale);
         updateIcon();
     }

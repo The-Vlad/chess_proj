@@ -353,11 +353,11 @@ public class Settings implements IWindow {
 
             String theme_path = settings_object.getJSONObject("figure-themes").getString(theme);
 
-            Icon white_icon = new ImageIcon(theme_path + "/" + new Pawn('w').getIconName() + ".png");
+            Icon white_icon = new ImageIcon(theme_path + "/" + new Pawn('w', 0, 0).getIconName() + ".png");
             JLabel white_figure = new JLabel(white_icon);
             white_figure.setBorder(BorderFactory.createMatteBorder(0, 0, 1, 0, Color.BLACK));
             add(white_figure);
-            Icon black_icon = new ImageIcon(theme_path + "/" + new Pawn('b').getIconName() + ".png");
+            Icon black_icon = new ImageIcon(theme_path + "/" + new Pawn('b', 0, 0).getIconName() + ".png");
             JLabel black_figure = new JLabel(black_icon);
             black_figure.setBorder(BorderFactory.createMatteBorder(1, 0, 0, 0, Color.BLACK));
             add(black_figure);
