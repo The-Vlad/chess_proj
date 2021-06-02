@@ -19,8 +19,11 @@ public class Rook extends Figure {
     }
     public  boolean move_check(Cell cell_to_move, Pole pole)
     {
-        System.out.println(o_y+" "+ o_x);
-        System.out.println(cell_to_move.o_y+" "+cell_to_move.o_x);
+        // если пытаются пойти не по прямой
+        if (cell_to_move.o_x != o_x && cell_to_move.o_y != o_y) {
+            return false;
+        }
+
         if(color_figure=='w' ) {
             if ((cell_to_move.figure_in_cell == null) || (cell_to_move.figure_in_cell.color_figure == 'b')) {
                 int y = o_y;
