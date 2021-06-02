@@ -87,6 +87,9 @@ public class Pole extends JPanel {
         }
     }
 
+    public   Cell getCell(int x,int y) {
+        return cage[x][y];
+    }
 
     public Pole(AbstractAction on_cell_click) {
         this.action = on_cell_click;

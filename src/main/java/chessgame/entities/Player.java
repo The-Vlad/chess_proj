@@ -23,11 +23,6 @@ public class Player {
         }
 
     }
-     static public boolean move(Cell cell,Cell cell_to_move)
-    {
-        cell.figure_in_cell.move_check(cell,cell_to_move);
-        return false;
-    }
 
 
 }

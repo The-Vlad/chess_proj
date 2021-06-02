@@ -22,6 +22,7 @@ public abstract class Figure {
     public Figure(String name_figure, char color, double icon_scale) {
         this.name_figure = name_figure;
         this.color_figure = color;
+        setIconScale(icon_scale);
         updateIcon();
     }
 
@@ -48,7 +49,7 @@ public abstract class Figure {
      */
     public abstract String getIconName();
 
-    public abstract boolean move_check(Cell cell,Cell cellToMove);
+    public abstract boolean move_check(Cell cell,Cell cellToMove,Pole pole);
 
     public static void main(String[] args) {
 //        Figure figure = new Figure("name");

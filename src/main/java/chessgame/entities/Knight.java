@@ -16,7 +16,7 @@ public class Knight extends Figure {
         }
         return "knight";
     }
-    public  boolean move_check(Cell cell,Cell cell_to_move)
+    public  boolean move_check(Cell cell,Cell cell_to_move,Pole pole)
     {
         if(cell.figure_in_cell.color_figure=='w') {
             if ((cell_to_move.figure_in_cell == null) || (cell_to_move.figure_in_cell.color_figure == 'b')) {

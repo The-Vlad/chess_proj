@@ -17,7 +17,7 @@ public class Bishop extends Figure {
         }
         return "bishop";
     }
-    public  boolean move_check(Cell cell,Cell cell_to_move)
+    public  boolean move_check(Cell cell,Cell cell_to_move, Pole pole)
     {
         System.out.println(cell.o_y+" "+ cell.o_x);
         System.out.println(cell_to_move.o_y+" "+cell_to_move.o_x);
@@ -28,50 +28,74 @@ public class Bishop extends Figure {
                 if (y > cell_to_move.o_y && x > cell_to_move.o_x) {
                     for (int i = 0; i < 9; i++) {
                         {
-                            if (y == cell_to_move.o_y && x == cell_to_move.o_x) {
+                            if (y - 1 == cell_to_move.o_y && x - 1 == cell_to_move.o_x) {
                                 cell_to_move.figure_in_cell = cell.figure_in_cell;
                                 cell.figure_in_cell = null;
                                 return true;
                             }
-                            y--;
-                            x--;
+                            y--;//=x
+                            x--;//=y
+                            Cell cell1= pole.getCell(x,y);
+                            if(cell1.figure_in_cell!=null)
+                            {
+                                System.out.println("Can't go");
+                                return false;
+                            }
                         }
 
                     }
                 } else if (y < cell_to_move.o_y && x > cell_to_move.o_x) {
                     for (int i = 0; i < 9; i++) {
                         {
-                            if (y == cell_to_move.o_y && x == cell_to_move.o_x) {
+                            if (y + 1 == cell_to_move.o_y && x - 1 == cell_to_move.o_x) {
                                 cell_to_move.figure_in_cell = cell.figure_in_cell;
                                 cell.figure_in_cell = null;
                                 return true;
                             }
                             y++;
                             x--;
+                            Cell cell1= pole.getCell(x,y);
+                            if(cell1.figure_in_cell!=null)
+                            {
+                                System.out.println("Can't go");
+                                return false;
+                            }
                         }
                     }
                 } else if (y > cell_to_move.o_y && x < cell_to_move.o_x) {
                     for (int i = 0; i < 9; i++) {
                         {
-                            if (y == cell_to_move.o_y && x == cell_to_move.o_x) {
+                            if (y - 1 == cell_to_move.o_y && x + 1 == cell_to_move.o_x) {
                                 cell_to_move.figure_in_cell = cell.figure_in_cell;
                                 cell.figure_in_cell = null;
                                 return true;
                             }
                             y--;
                             x++;
+                            Cell cell1= pole.getCell(x,y);
+                            if(cell1.figure_in_cell!=null)
+                            {
+                                System.out.println("Can't go");
+                                return false;
+                            }
                         }
                     }
                 } else if (y < cell_to_move.o_y && x < cell_to_move.o_x) {
                     for (int i = 0; i < 9; i++) {
                         {
-                            if (y == cell_to_move.o_y && x == cell_to_move.o_x) {
+                            if (y + 1 == cell_to_move.o_y && x+1 == cell_to_move.o_x) {
                                 cell_to_move.figure_in_cell = cell.figure_in_cell;
                                 cell.figure_in_cell = null;
                                 return true;
                             }
                             y++;
                             x++;
+                            Cell cell1= pole.getCell(x,y);
+                            if(cell1.figure_in_cell!=null)
+                            {
+                                System.out.println("Can't go");
+                                return false;
+                            }
                         }
                     }
                 }
@@ -83,50 +107,74 @@ public class Bishop extends Figure {
                 if (y > cell_to_move.o_y && x > cell_to_move.o_x) {
                     for (int i = 0; i < 9; i++) {
                         {
-                            if (y == cell_to_move.o_y && x == cell_to_move.o_x) {
+                            if (y-1 == cell_to_move.o_y && x-1 == cell_to_move.o_x) {
                                 cell_to_move.figure_in_cell = cell.figure_in_cell;
                                 cell.figure_in_cell = null;
                                 return true;
                             }
                             y--;
                             x--;
+                            Cell cell1= pole.getCell(x,y);
+                            if(cell1.figure_in_cell!=null)
+                            {
+                                System.out.println("Can't go");
+                                return false;
+                            }
                         }
 
                     }
                 } else if (y < cell_to_move.o_y && x > cell_to_move.o_x) {
                     for (int i = 0; i < 9; i++) {
                         {
-                            if (y == cell_to_move.o_y && x == cell_to_move.o_x) {
+                            if (y+1 == cell_to_move.o_y && x-1 == cell_to_move.o_x) {
                                 cell_to_move.figure_in_cell = cell.figure_in_cell;
                                 cell.figure_in_cell = null;
                                 return true;
                             }
                             y++;
                             x--;
+                            Cell cell1= pole.getCell(x,y);
+                            if(cell1.figure_in_cell!=null)
+                            {
+                                System.out.println("Can't go");
+                                return false;
+                            }
                         }
                     }
                 } else if (y > cell_to_move.o_y && x < cell_to_move.o_x) {
                     for (int i = 0; i < 9; i++) {
                         {
-                            if (y == cell_to_move.o_y && x == cell_to_move.o_x) {
+                            if (y-1 == cell_to_move.o_y && x+1 == cell_to_move.o_x) {
                                 cell_to_move.figure_in_cell = cell.figure_in_cell;
                                 cell.figure_in_cell = null;
                                 return true;
                             }
                             y--;
                             x++;
+                            Cell cell1= pole.getCell(x,y);
+                            if(cell1.figure_in_cell!=null)
+                            {
+                                System.out.println("Can't go");
+                                return false;
+                            }
                         }
                     }
                 } else if (y < cell_to_move.o_y && x < cell_to_move.o_x) {
                     for (int i = 0; i < 9; i++) {
                         {
-                            if (y == cell_to_move.o_y && x == cell_to_move.o_x) {
+                            if (y+1 == cell_to_move.o_y && x+1 == cell_to_move.o_x) {
                                 cell_to_move.figure_in_cell = cell.figure_in_cell;
                                 cell.figure_in_cell = null;
                                 return true;
                             }
                             y++;
                             x++;
+                            Cell cell1= pole.getCell(x,y);
+                            if(cell1.figure_in_cell!=null)
+                            {
+                                System.out.println("Can't go");
+                                return false;
+                            }
                         }
                     }
                 }

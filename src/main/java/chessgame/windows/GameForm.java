@@ -74,6 +74,7 @@ public class GameForm extends JFrame implements IWindow {
 
     public void makeTurn(Cell cell, Cell cell_to_move) {
 
+
     }
 
     public class ButtonListener extends AbstractAction// класс слушателя, должен  вызывать методы хода от игрока
@@ -90,9 +91,10 @@ public class GameForm extends JFrame implements IWindow {
                 Cell button1 = (Cell) e.getSource();
                 press_cell = false;;
 
-                Player.move(button, button1);
+                if (button.figure_in_cell.move_check(button, button1, pole)) {
+                    makeTurn(button, button1);
+                }
 
-                makeTurn(button, button1);
 
                 pole.changeImageInCell(button);
                 pole.changeImageInCell(button1);
