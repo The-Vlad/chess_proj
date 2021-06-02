@@ -29,6 +29,8 @@ public class GameForm extends JFrame implements IWindow {
     private Player black_player = new Player('b');
     private Player current_player = white_player;
 
+    private Cell highlighted_check_cell = null;
+
     /**
      * Constructor that defines listeners to the components
      *
@@ -75,9 +77,67 @@ public class GameForm extends JFrame implements IWindow {
         return game_panel;
     }
 
+    /**
+     * Проверяет наличие шаха на доске
+     * @param king Король, которому может угрожать шах
+     * @return true, если есть шах
+     */
+    public boolean checkCheck(King king) {
+        ArrayList<Figure> figures = pole.getFigures();
+        for (Figure figure : figures) {
+            if (figure.color_figure != king.color_figure && figure.move_check(pole.getCell(king.o_x, king.o_y), pole)) {
+                return true;
+            }
+        }
+        return false;
+    }
+
+    /**
+     * Проверяет наличие мата на доске. Да, это плохое название метода
+     * @param king Король, которому может угрожать мат
+     * @return true, если есть мат
+     */
+    public boolean checkMate(King king) {
+        // TODO
+        return false;
+    }
+
     public void makeTurn(Cell cell, Cell cell_to_move) {
+        // подсвеченная во время шаха клетка. Шах длится только ход, поэтому на следующий мы её гасим
+        if (highlighted_check_cell != null) {
+            highlighted_check_cell.removeHighlight();
+            highlighted_check_cell = null;
+        }
 
         pole.moveFigure(cell, cell_to_move);
+
+        King current_king;
+        if (current_player.getColor() == 'w') {
+            current_king = pole.getWhiteKing();
+        }
+        else {
+            current_king = pole.getBlackKing();
+        }
+
+        // если ход игрока приводит к шаху его же короля, мы возвращаем фигуру на место. В связи с этим...
+        // TODO - либо checkCheck перенести в Pole, либо разделить moveFigure и changeImageInCell
+        if (checkCheck(current_king)) {
+            pole.moveFigure(cell_to_move, cell);
+            return;
+        }
+
+        King opposite_king;
+        if (current_player.getColor() == 'w') {
+            opposite_king = pole.getBlackKing();
+        }
+        else {
+            opposite_king = pole.getWhiteKing();
+        }
+        // чтобы красиво подсвечивать шахи проверяем наличие оного у другого игрока (уберите это и сделайте потом норм графику пж)
+        if (checkCheck(opposite_king)) {
+            highlighted_check_cell = pole.getCell(opposite_king.o_x, opposite_king.o_y);
+            highlighted_check_cell.highlightCheck();
+        }
 
         if (current_player == white_player) {
             current_player = black_player;

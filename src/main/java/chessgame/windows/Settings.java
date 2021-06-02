@@ -92,6 +92,8 @@ public class Settings implements IWindow {
         map.put("black", new Color(black_colors.getInt(0), black_colors.getInt(1), black_colors.getInt(2)));
         JSONArray white_colors = value.getJSONArray("white");
         map.put("white", new Color(white_colors.getInt(0), white_colors.getInt(1), white_colors.getInt(2)));
+        JSONArray check_colors = value.getJSONArray("check");
+        map.put("check", new Color(check_colors.getInt(0), check_colors.getInt(1), check_colors.getInt(2)));
         return map;
     }
 
