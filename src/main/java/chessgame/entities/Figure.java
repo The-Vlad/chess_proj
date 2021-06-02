@@ -54,7 +54,7 @@ public abstract class Figure {
      */
     public abstract String getIconName();
 
-    public abstract boolean move_check(Cell cell,Cell cellToMove,Pole pole);
+    public abstract boolean move_check(Cell cellToMove,Pole pole);
 
     public static void main(String[] args) {
 //        Figure figure = new Figure("name");

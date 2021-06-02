@@ -227,7 +227,16 @@ public class Pole extends JPanel {
         }
     }
 
-    /*public static void main(String[] args) {
-        Pole ob=new Pole();
-    }*/
+    public ArrayList<Figure> getFigures() {
+        return figures;
+    }
+
+    public King getWhiteKing() {
+        return white_king;
+    }
+
+    public King getBlackKing() {
+        return black_king;
+    }
+
 }

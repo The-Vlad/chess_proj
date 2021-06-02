@@ -1,9 +1,7 @@
 package chessgame.windows;
 
 import chessgame.App;
-import chessgame.entities.Cell;
-import chessgame.entities.Player;
-import chessgame.entities.Pole;
+import chessgame.entities.*;
 import com.intellij.uiDesigner.core.GridConstraints;
 import com.intellij.uiDesigner.core.GridLayoutManager;
 import com.intellij.uiDesigner.core.Spacer;
@@ -14,6 +12,7 @@ import javax.swing.event.AncestorListener;
 import java.awt.*;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
+import java.util.ArrayList;
 
 /**
  * @author Naumov V.V.
@@ -88,8 +87,6 @@ public class GameForm extends JFrame implements IWindow {
         }
     }
 
-
-
     public class ButtonListener extends AbstractAction// класс слушателя, должен  вызывать методы хода от игрока
     {
         boolean press_cell = false;
@@ -107,7 +104,7 @@ public class GameForm extends JFrame implements IWindow {
                 Cell button1 = (Cell) e.getSource();
                 press_cell = false;;
 
-                if (button.figure_in_cell.move_check(button, button1, pole)) {
+                if (button.figure_in_cell.move_check(button1, pole)) {
                     makeTurn(button, button1);
                 }
             }

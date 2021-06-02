@@ -17,14 +17,14 @@ public class Rook extends Figure {
         }
         return "rook";
     }
-    public  boolean move_check(Cell cell,Cell cell_to_move, Pole pole)
+    public  boolean move_check(Cell cell_to_move, Pole pole)
     {
-        System.out.println(cell.o_y+" "+ cell.o_x);
+        System.out.println(o_y+" "+ o_x);
         System.out.println(cell_to_move.o_y+" "+cell_to_move.o_x);
-        if(cell.figure_in_cell.color_figure=='w' ) {
+        if(color_figure=='w' ) {
             if ((cell_to_move.figure_in_cell == null) || (cell_to_move.figure_in_cell.color_figure == 'b')) {
-                int y = cell.o_y;
-                int x = cell.o_x;
+                int y = o_y;
+                int x = o_x;
                 if (y == cell_to_move.o_y && x > cell_to_move.o_x) {
                     System.out.println("hi");
                     for (int i = 0; i < 9; i++) {
@@ -89,10 +89,10 @@ public class Rook extends Figure {
                     }
                 }
             }
-        }else if(cell.figure_in_cell.color_figure=='b' ) {
+        }else if(color_figure=='b' ) {
             if ((cell_to_move.figure_in_cell == null) || (cell_to_move.figure_in_cell.color_figure == 'w')) {
-                int y = cell.o_y;
-                int x = cell.o_x;
+                int y = o_y;
+                int x = o_x;
                 if (y == cell_to_move.o_y && x > cell_to_move.o_x) {
                     System.out.println("hi");
                     for (int i = 0; i < 9; i++) {
