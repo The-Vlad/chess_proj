@@ -25,8 +25,6 @@ public class Knight extends Figure {
                         ((cell.o_x + 1 == cell_to_move.o_x) && ((cell.o_y - 2 == cell_to_move.o_y) || (cell.o_y + 2 == cell_to_move.o_y))) ||
                         ((cell.o_x + 2 == cell_to_move.o_x) && ((cell.o_y - 1 == cell_to_move.o_y) || (cell.o_y + 1 == cell_to_move.o_y)))
                 ) {
-                    cell_to_move.figure_in_cell = cell.figure_in_cell;
-                    cell.figure_in_cell = null;
                     return true;
                 }
             }
@@ -37,8 +35,6 @@ public class Knight extends Figure {
                             ((cell.o_x + 1 == cell_to_move.o_x) && ((cell.o_y - 2 == cell_to_move.o_y) || (cell.o_y + 2 == cell_to_move.o_y))) ||
                             ((cell.o_x + 2 == cell_to_move.o_x) && ((cell.o_y - 1 == cell_to_move.o_y) || (cell.o_y + 1 == cell_to_move.o_y)))
                     ) {
-                        cell_to_move.figure_in_cell = cell.figure_in_cell;
-                        cell.figure_in_cell = null;
                         return true;
                     }
 

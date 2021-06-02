@@ -26,6 +26,10 @@ public class GameForm extends JFrame implements IWindow {
     private JButton toMenuButton;
     private JPanel board_panel;
 
+    private Player white_player = new Player('w');
+    private Player black_player = new Player('b');
+    private Player current_player = white_player;
+
     /**
      * Constructor that defines listeners to the components
      *
@@ -74,8 +78,20 @@ public class GameForm extends JFrame implements IWindow {
 
     public void makeTurn(Cell cell, Cell cell_to_move) {
 
+        cell_to_move.figure_in_cell = cell.figure_in_cell;
+        cell.figure_in_cell = null;
+        pole.changeImageInCell(cell);
+        pole.changeImageInCell(cell_to_move);
 
+        if (current_player == white_player) {
+            current_player = black_player;
+        }
+        else {
+            current_player = white_player;
+        }
     }
+
+
 
     public class ButtonListener extends AbstractAction// класс слушателя, должен  вызывать методы хода от игрока
     {
@@ -84,20 +100,19 @@ public class GameForm extends JFrame implements IWindow {
 
         @Override
         public void actionPerformed(ActionEvent e) {
-            if (press_cell == false) {
-                button = (Cell) e.getSource();
+            // если нажали на кнопку с фигурой текущего цвета, то её выбрали для хода
+            if (((Cell) e.getSource()).figure_in_cell != null && ((Cell) e.getSource()).figure_in_cell.color_figure == current_player.getColor()) {
+                button = ((Cell) e.getSource());
                 press_cell = true;
-            } else {
+                return;
+            }
+            if (press_cell == true) {
                 Cell button1 = (Cell) e.getSource();
                 press_cell = false;;
 
                 if (button.figure_in_cell.move_check(button, button1, pole)) {
                     makeTurn(button, button1);
                 }
-
-
-                pole.changeImageInCell(button);
-                pole.changeImageInCell(button1);
             }
         }
     }

@@ -23,15 +23,11 @@ public class Pawn extends Figure {
              if (cell.figure_in_cell.color_figure == 'w') {
                  if (cell_to_move.figure_in_cell == null) {
                      if (((cell.o_y == cell_to_move.o_y && (cell.o_x - 1 == cell_to_move.o_x || cell.o_x - 2 == cell_to_move.o_x)))) {
-                         cell_to_move.figure_in_cell = cell.figure_in_cell;
-                         cell.figure_in_cell = null;
                          first_move=true;
                          return true;
                      }
                  } else if (cell_to_move.figure_in_cell.color_figure == 'b') {
                      if (((cell.o_y == cell_to_move.o_y + 1) || (cell.o_y == cell_to_move.o_y - 1)) && (cell.o_x - 1 == cell_to_move.o_x)) {
-                         cell_to_move.figure_in_cell = cell.figure_in_cell;
-                         cell.figure_in_cell = null;
                          first_move=true;
                          return true;
                      }
@@ -40,15 +36,11 @@ public class Pawn extends Figure {
              } else if (cell.figure_in_cell.color_figure == 'b') {
                  if (cell_to_move.figure_in_cell == null) {
                      if (cell.o_y == cell_to_move.o_y && (cell.o_x + 1 == cell_to_move.o_x || cell.o_x + 2 == cell_to_move.o_x)) {
-                         cell_to_move.figure_in_cell = cell.figure_in_cell;
-                         cell.figure_in_cell = null;
                          first_move=true;
                          return true;
                      }
                  } else if (cell_to_move.figure_in_cell.color_figure == 'w') {
                      if (((cell.o_y == cell_to_move.o_y + 1) || (cell.o_y == cell_to_move.o_y - 1)) && (cell.o_x + 1 == cell_to_move.o_x)) {
-                         cell_to_move.figure_in_cell = cell.figure_in_cell;
-                         cell.figure_in_cell = null;
                          first_move=true;
                          return true;
                      }
@@ -59,14 +51,10 @@ public class Pawn extends Figure {
              if (cell.figure_in_cell.color_figure == 'w') {
                  if (cell_to_move.figure_in_cell == null) {
                      if (((cell.o_y == cell_to_move.o_y && (cell.o_x - 1 == cell_to_move.o_x)))) {
-                         cell_to_move.figure_in_cell = cell.figure_in_cell;
-                         cell.figure_in_cell = null;
                          return true;
                      }
                  } else if (cell_to_move.figure_in_cell.color_figure == 'b') {
                      if (((cell.o_y == cell_to_move.o_y + 1) || (cell.o_y == cell_to_move.o_y - 1)) && (cell.o_x - 1 == cell_to_move.o_x)) {
-                         cell_to_move.figure_in_cell = cell.figure_in_cell;
-                         cell.figure_in_cell = null;
                          return true;
                      }
                  }
@@ -74,14 +62,10 @@ public class Pawn extends Figure {
              } else if (cell.figure_in_cell.color_figure == 'b') {
                  if (cell_to_move.figure_in_cell == null) {
                      if (cell.o_y == cell_to_move.o_y && (cell.o_x + 1 == cell_to_move.o_x)) {
-                         cell_to_move.figure_in_cell = cell.figure_in_cell;
-                         cell.figure_in_cell = null;
                          return true;
                      }
                  } else if (cell_to_move.figure_in_cell.color_figure == 'w') {
                      if (((cell.o_y == cell_to_move.o_y + 1) || (cell.o_y == cell_to_move.o_y - 1)) && (cell.o_x + 1 == cell_to_move.o_x)) {
-                         cell_to_move.figure_in_cell = cell.figure_in_cell;
-                         cell.figure_in_cell = null;
                          return true;
                      }
                  }

@@ -10,6 +10,7 @@ public class Pole extends JPanel {
     private Cell[][] cage = new Cell[9][9];
     private Action action;
 
+
     /**
      * Создаёт поле с установленными фигурами
      * @param side длина стороны
@@ -94,7 +95,6 @@ public class Pole extends JPanel {
     public Pole(AbstractAction on_cell_click) {
         this.action = on_cell_click;
 
-        //super("Game");
         for (int i = 0; i < 8; i++) {
             for (int j = 0; j < 8; j++) {
                 cage[i][j] = new Cell(i, j);// клеткам присваиваются координаты и цвета/костыль

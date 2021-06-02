@@ -29,8 +29,6 @@ public class Queen extends Figure {
                     for (int i = 0; i < 9; i++) {
                         {
                             if (y - 1 == cell_to_move.o_y && x - 1 == cell_to_move.o_x) {
-                                cell_to_move.figure_in_cell = cell.figure_in_cell;
-                                cell.figure_in_cell = null;
                                 return true;
                             }
                             y--;//=x
@@ -47,8 +45,6 @@ public class Queen extends Figure {
                     for (int i = 0; i < 9; i++) {
                         {
                             if (y + 1 == cell_to_move.o_y && x - 1 == cell_to_move.o_x) {
-                                cell_to_move.figure_in_cell = cell.figure_in_cell;
-                                cell.figure_in_cell = null;
                                 return true;
                             }
                             y++;
@@ -64,8 +60,6 @@ public class Queen extends Figure {
                     for (int i = 0; i < 9; i++) {
                         {
                             if (y - 1 == cell_to_move.o_y && x + 1 == cell_to_move.o_x) {
-                                cell_to_move.figure_in_cell = cell.figure_in_cell;
-                                cell.figure_in_cell = null;
                                 return true;
                             }
                             y--;
@@ -81,8 +75,6 @@ public class Queen extends Figure {
                     for (int i = 0; i < 9; i++) {
                         {
                             if (y + 1 == cell_to_move.o_y && x + 1 == cell_to_move.o_x) {
-                                cell_to_move.figure_in_cell = cell.figure_in_cell;
-                                cell.figure_in_cell = null;
                                 return true;
                             }
                             y++;
@@ -99,8 +91,6 @@ public class Queen extends Figure {
                     for (int i = 0; i < 9; i++) {
                         {
                             if (x - 1 == cell_to_move.o_x) {
-                                cell_to_move.figure_in_cell = cell.figure_in_cell;
-                                cell.figure_in_cell = null;
                                 return true;
                             }
                             x--;
@@ -116,8 +106,6 @@ public class Queen extends Figure {
                     for (int i = 0; i < 9; i++) {
                         {
                             if (x + 1 == cell_to_move.o_x) {
-                                cell_to_move.figure_in_cell = cell.figure_in_cell;
-                                cell.figure_in_cell = null;
                                 return true;
                             }
                             x++;
@@ -132,8 +120,6 @@ public class Queen extends Figure {
                     for (int i = 0; i < 9; i++) {
                         {
                             if (y - 1 == cell_to_move.o_y) {
-                                cell_to_move.figure_in_cell = cell.figure_in_cell;
-                                cell.figure_in_cell = null;
                                 return true;
                             }
                             y--;
@@ -148,8 +134,6 @@ public class Queen extends Figure {
                     for (int i = 0; i < 9; i++) {
                         {
                             if (y + 1 == cell_to_move.o_y) {
-                                cell_to_move.figure_in_cell = cell.figure_in_cell;
-                                cell.figure_in_cell = null;
                                 return true;
                             }
                             y++;
@@ -168,8 +152,6 @@ public class Queen extends Figure {
                     for (int i = 0; i < 9; i++) {
                         {
                             if (y - 1 == cell_to_move.o_y && x - 1 == cell_to_move.o_x) {
-                                cell_to_move.figure_in_cell = cell.figure_in_cell;
-                                cell.figure_in_cell = null;
                                 return true;
                             }
                             y--;
@@ -186,8 +168,6 @@ public class Queen extends Figure {
                     for (int i = 0; i < 9; i++) {
                         {
                             if (y + 1 == cell_to_move.o_y && x - 1 == cell_to_move.o_x) {
-                                cell_to_move.figure_in_cell = cell.figure_in_cell;
-                                cell.figure_in_cell = null;
                                 return true;
                             }
                             y++;
@@ -203,8 +183,6 @@ public class Queen extends Figure {
                     for (int i = 0; i < 9; i++) {
                         {
                             if (y - 1 == cell_to_move.o_y && x + 1 == cell_to_move.o_x) {
-                                cell_to_move.figure_in_cell = cell.figure_in_cell;
-                                cell.figure_in_cell = null;
                                 return true;
                             }
                             y--;
@@ -220,8 +198,6 @@ public class Queen extends Figure {
                     for (int i = 0; i < 9; i++) {
                         {
                             if (y + 1 == cell_to_move.o_y && x + 1 == cell_to_move.o_x) {
-                                cell_to_move.figure_in_cell = cell.figure_in_cell;
-                                cell.figure_in_cell = null;
                                 return true;
                             }
                             y++;
@@ -238,8 +214,6 @@ public class Queen extends Figure {
                     for (int i = 0; i < 9; i++) {
                         {
                             if (x - 1 == cell_to_move.o_x) {
-                                cell_to_move.figure_in_cell = cell.figure_in_cell;
-                                cell.figure_in_cell = null;
                                 return true;
                             }
                             x--;
@@ -255,8 +229,6 @@ public class Queen extends Figure {
                     for (int i = 0; i < 9; i++) {
                         {
                             if (x + 1 == cell_to_move.o_x) {
-                                cell_to_move.figure_in_cell = cell.figure_in_cell;
-                                cell.figure_in_cell = null;
                                 return true;
                             }
                             x++;
@@ -271,8 +243,6 @@ public class Queen extends Figure {
                     for (int i = 0; i < 9; i++) {
                         {
                             if (y - 1 == cell_to_move.o_y) {
-                                cell_to_move.figure_in_cell = cell.figure_in_cell;
-                                cell.figure_in_cell = null;
                                 return true;
                             }
                             y--;
@@ -287,8 +257,6 @@ public class Queen extends Figure {
                     for (int i = 0; i < 9; i++) {
                         {
                             if (y + 1 == cell_to_move.o_y) {
-                                cell_to_move.figure_in_cell = cell.figure_in_cell;
-                                cell.figure_in_cell = null;
                                 return true;
                             }
                             y++;

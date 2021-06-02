@@ -24,5 +24,8 @@ public class Player {
 
     }
 
+    public char getColor() {
+          return figure_color;
+    }
 
 }
