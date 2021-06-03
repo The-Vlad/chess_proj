@@ -206,9 +206,16 @@ public class Pole extends JPanel {
     }
     public void addFigure(Cell cell,Figure figure)
     {
+        if (cell.figure_in_cell != null) {
+            throw new RuntimeException("Cell is already occupied");
+        }
+
         cell.figure_in_cell=figure;
-        cell.setIcon(figure.icon_figure);
-        figures.add(figure);
+
+        if (figure != null) {
+            cell.setIcon(figure.icon_figure);
+            figures.add(figure);
+        }
     }
 
     public void moveFigure(Figure figure, Figure figure_to_eat) {
