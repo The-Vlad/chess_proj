@@ -17,7 +17,7 @@
             43
           ]
         },
-        "base": {
+        "black-white": {
           "white": [
             255,
             255,
@@ -33,12 +33,29 @@
             43,
             43
           ]
+        },
+        "base": {
+          "white": [
+            247,
+            238,
+            155
+          ],
+          "black": [
+            144,
+            144,
+            144
+          ],
+          "check": [
+            168,
+            25,
+            31
+          ]
         }
       },
-      "pole-active-theme": "magenta",
+      "pole-active-theme": "base",
       "figure-themes": {
         "sus": "src/main/resources/figure/sus",
         "base": "src/main/resources/figure/base"
       },
-      "figure-active-theme": "sus"
+      "figure-active-theme": "base"
     }
