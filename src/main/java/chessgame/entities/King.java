@@ -40,6 +40,7 @@ public class King extends Figure {
                 return true;
             }
         }
+        //dfdffd
         } else if(color_figure=='b')
             {
                 if ((cell_to_move.figure_in_cell == null) || (cell_to_move.figure_in_cell.color_figure == 'w')) {

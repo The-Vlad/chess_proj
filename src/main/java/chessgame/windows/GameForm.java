@@ -54,23 +54,19 @@ public class GameForm extends JFrame implements IWindow {
         });
 
         // этот слушатель срабатывает, когда окно становится активным
-        game_panel.addAncestorListener ( new AncestorListener()
-        {
-            public void ancestorAdded ( AncestorEvent event )
-            {
+        game_panel.addAncestorListener(new AncestorListener() {
+            public void ancestorAdded(AncestorEvent event) {
                 pole.updatePole();
             }
 
-            public void ancestorRemoved ( AncestorEvent event )
-            {
+            public void ancestorRemoved(AncestorEvent event) {
 
             }
 
-            public void ancestorMoved ( AncestorEvent event )
-            {
+            public void ancestorMoved(AncestorEvent event) {
                 // Component container moved
             }
-        } );
+        });
     }
 
     public Container getMainPanel() {
@@ -79,6 +75,7 @@ public class GameForm extends JFrame implements IWindow {
 
     /**
      * Проверяет наличие шаха на доске
+     *
      * @param king Король, которому может угрожать шах
      * @return true, если есть шах
      */
@@ -94,12 +91,32 @@ public class GameForm extends JFrame implements IWindow {
 
     /**
      * Проверяет наличие мата на доске. Да, это плохое название метода
+     * Если возвращает true, то нет ходов у стороны короля
+     *
      * @param king Король, которому может угрожать мат
      * @return true, если есть мат
      */
     public boolean checkMate(King king) {
-        // TODO
-        return false;
+        ArrayList<Figure> figures = pole.getFigures();
+        for (Figure figure : figures) {
+            if (figure.color_figure == king.color_figure) {
+                Cell temp = pole.getCell(figure.o_x, figure.o_y);
+                for (int i = 0; i < 8; i++) {
+                    for (int j = 0; j < 8; j++) {
+                        Cell next = pole.getCell(i, j);
+                        if (figure.move_check(next, pole)) {
+                            pole.moveFigure(figure, next);
+                            if (!checkCheck(king)) {
+                                return false;
+                            } else {
+                                pole.moveFigure(next, temp);
+                            }
+                        }
+                    }
+                }
+            }
+        }
+        return true;
     }
 
     public void makeTurn(Cell cell, Cell cell_to_move) {
@@ -114,8 +131,7 @@ public class GameForm extends JFrame implements IWindow {
         King current_king;
         if (current_player.getColor() == 'w') {
             current_king = pole.getWhiteKing();
-        }
-        else {
+        } else {
             current_king = pole.getBlackKing();
         }
 
@@ -129,20 +145,22 @@ public class GameForm extends JFrame implements IWindow {
         King opposite_king;
         if (current_player.getColor() == 'w') {
             opposite_king = pole.getBlackKing();
-        }
-        else {
+        } else {
             opposite_king = pole.getWhiteKing();
         }
         // чтобы красиво подсвечивать шахи проверяем наличие оного у другого игрока (уберите это и сделайте потом норм графику пж)
         if (checkCheck(opposite_king)) {
+            if (checkMate(opposite_king)) {
+                System.out.println("CheckMate");
+                System.exit(0);
+            }
             highlighted_check_cell = pole.getCell(opposite_king.o_x, opposite_king.o_y);
             highlighted_check_cell.highlightCheck();
         }
 
         if (current_player == white_player) {
             current_player = black_player;
-        }
-        else {
+        } else {
             current_player = white_player;
         }
     }
@@ -162,7 +180,8 @@ public class GameForm extends JFrame implements IWindow {
             }
             if (press_cell == true) {
                 Cell button1 = (Cell) e.getSource();
-                press_cell = false;;
+                press_cell = false;
+                ;
 
                 if (button.figure_in_cell.move_check(button1, pole)) {
                     makeTurn(button, button1);
