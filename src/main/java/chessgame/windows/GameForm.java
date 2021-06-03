@@ -13,6 +13,7 @@ import java.awt.*;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import java.util.ArrayList;
+import java.util.concurrent.TimeUnit;
 
 /**
  * @author Naumov V.V.
@@ -24,6 +25,7 @@ public class GameForm extends JFrame implements IWindow {
     private Pole pole;
     private JButton toMenuButton;
     private JPanel board_panel;
+    private JLabel end_game;
 
     private Player white_player = new Player('w');
     private Player black_player = new Player('b');
@@ -166,10 +168,7 @@ public class GameForm extends JFrame implements IWindow {
         if (checkCheck(opposite_king)) {
             if (checkMate(opposite_king)) {
                 System.out.println("CheckMate");
-                current_player = white_player;
-                board_panel.remove(pole);
-                pole = new Pole(new ButtonListener());
-                board_panel.add(pole);
+                end_game.setVisible(true);
             }
             highlighted_check_cell = pole.getCell(opposite_king.o_x, opposite_king.o_y);
             highlighted_check_cell.highlightCheck();
@@ -199,7 +198,7 @@ public class GameForm extends JFrame implements IWindow {
             if (press_cell == true) {
                 Cell button1 = (Cell) e.getSource();
                 press_cell = false;
-                ;
+
 
                 if (button.figure_in_cell.move_check(button1, pole)) {
                     makeTurn(button, button1);
@@ -224,21 +223,49 @@ public class GameForm extends JFrame implements IWindow {
      */
     private void $$$setupUI$$$() {
         game_panel = new JPanel();
-        game_panel.setLayout(new GridLayoutManager(3, 3, new Insets(0, 0, 0, 0), -1, -1));
+        game_panel.setLayout(new GridLayoutManager(3, 4, new Insets(0, 0, 0, 0), -1, -1));
         game_panel.setBackground(new Color(-905650));
+        game_panel.setVisible(true);
         final Spacer spacer1 = new Spacer();
-        game_panel.add(spacer1, new GridConstraints(1, 0, 1, 1, GridConstraints.ANCHOR_CENTER, GridConstraints.FILL_HORIZONTAL, GridConstraints.SIZEPOLICY_WANT_GROW, 1, null, null, null, 0, false));
+        game_panel.add(spacer1, new GridConstraints(2, 1, 1, 1, GridConstraints.ANCHOR_CENTER, GridConstraints.FILL_VERTICAL, 1, GridConstraints.SIZEPOLICY_WANT_GROW, null, null, null, 0, false));
         final Spacer spacer2 = new Spacer();
-        game_panel.add(spacer2, new GridConstraints(2, 0, 1, 1, GridConstraints.ANCHOR_CENTER, GridConstraints.FILL_VERTICAL, 1, GridConstraints.SIZEPOLICY_WANT_GROW, null, null, null, 0, false));
-        final Spacer spacer3 = new Spacer();
-        game_panel.add(spacer3, new GridConstraints(0, 0, 1, 1, GridConstraints.ANCHOR_CENTER, GridConstraints.FILL_VERTICAL, 1, GridConstraints.SIZEPOLICY_WANT_GROW, null, null, null, 0, false));
+        game_panel.add(spacer2, new GridConstraints(0, 1, 1, 1, GridConstraints.ANCHOR_CENTER, GridConstraints.FILL_VERTICAL, 1, GridConstraints.SIZEPOLICY_WANT_GROW, null, null, null, 0, false));
         toMenuButton = new JButton();
         toMenuButton.setText("ToMenu");
-        game_panel.add(toMenuButton, new GridConstraints(1, 1, 1, 1, GridConstraints.ANCHOR_CENTER, GridConstraints.FILL_HORIZONTAL, GridConstraints.SIZEPOLICY_CAN_SHRINK | GridConstraints.SIZEPOLICY_CAN_GROW, GridConstraints.SIZEPOLICY_FIXED, null, null, null, 0, false));
+        game_panel.add(toMenuButton, new GridConstraints(1, 2, 1, 1, GridConstraints.ANCHOR_CENTER, GridConstraints.FILL_HORIZONTAL, GridConstraints.SIZEPOLICY_CAN_SHRINK | GridConstraints.SIZEPOLICY_CAN_GROW, GridConstraints.SIZEPOLICY_FIXED, null, null, null, 0, false));
         board_panel = new JPanel();
         board_panel.setLayout(new FlowLayout(FlowLayout.CENTER, 5, 5));
         board_panel.setBackground(new Color(-1117618));
-        game_panel.add(board_panel, new GridConstraints(1, 2, 1, 1, GridConstraints.ANCHOR_CENTER, GridConstraints.FILL_BOTH, GridConstraints.SIZEPOLICY_CAN_SHRINK | GridConstraints.SIZEPOLICY_CAN_GROW, GridConstraints.SIZEPOLICY_CAN_SHRINK | GridConstraints.SIZEPOLICY_CAN_GROW, null, null, null, 0, false));
+        game_panel.add(board_panel, new GridConstraints(1, 3, 1, 1, GridConstraints.ANCHOR_CENTER, GridConstraints.FILL_BOTH, GridConstraints.SIZEPOLICY_CAN_SHRINK | GridConstraints.SIZEPOLICY_CAN_GROW, GridConstraints.SIZEPOLICY_CAN_SHRINK | GridConstraints.SIZEPOLICY_CAN_GROW, null, null, null, 0, false));
+        end_game = new JLabel();
+        end_game.setBackground(new Color(-986429));
+        end_game.setEnabled(true);
+        Font end_gameFont = this.$$$getFont$$$("Comic Sans MS", Font.BOLD, 36, end_game.getFont());
+        if (end_gameFont != null) end_game.setFont(end_gameFont);
+        end_game.setText("Game Over!!! :)");
+        end_game.setVisible(false);
+        game_panel.add(end_game, new GridConstraints(1, 1, 1, 1, GridConstraints.ANCHOR_WEST, GridConstraints.FILL_NONE, GridConstraints.SIZEPOLICY_FIXED, GridConstraints.SIZEPOLICY_FIXED, null, null, null, 0, false));
+        final Spacer spacer3 = new Spacer();
+        game_panel.add(spacer3, new GridConstraints(1, 0, 1, 1, GridConstraints.ANCHOR_CENTER, GridConstraints.FILL_HORIZONTAL, GridConstraints.SIZEPOLICY_WANT_GROW, 1, null, null, null, 0, false));
+    }
+
+    /**
+     * @noinspection ALL
+     */
+    private Font $$$getFont$$$(String fontName, int style, int size, Font currentFont) {
+        if (currentFont == null) return null;
+        String resultName;
+        if (fontName == null) {
+            resultName = currentFont.getName();
+        } else {
+            Font testFont = new Font(fontName, Font.PLAIN, 10);
+            if (testFont.canDisplay('a') && testFont.canDisplay('1')) {
+                resultName = fontName;
+            } else {
+                resultName = currentFont.getName();
+            }
+        }
+        return new Font(resultName, style >= 0 ? style : currentFont.getStyle(), size >= 0 ? size : currentFont.getSize());
     }
 
     /**

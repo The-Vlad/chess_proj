@@ -7,6 +7,8 @@
     </constraints>
     <properties>
       <background color="-5760737"/>
+      <enabled value="true"/>
+      <visible value="true"/>
     </properties>
     <border type="none">
       <color color="-16777216"/>

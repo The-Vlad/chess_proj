@@ -117,6 +117,8 @@ public class MenuForm extends JFrame implements IWindow {
         menu_panel = new JPanel();
         menu_panel.setLayout(new GridLayoutManager(1, 2, new Insets(0, 0, 0, 0), -1, -1));
         menu_panel.setBackground(new Color(-5760737));
+        menu_panel.setEnabled(true);
+        menu_panel.setVisible(true);
         r_main_panel = new JPanel();
         r_main_panel.setLayout(new GridLayoutManager(3, 1, new Insets(0, 0, 0, 0), -1, -1));
         r_main_panel.setBackground(new Color(-855715));
