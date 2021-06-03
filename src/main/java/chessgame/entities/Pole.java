@@ -179,6 +179,7 @@ public class Pole extends JPanel {
         return cage[x][y];
     }
 
+
     public void updatePole() {
         for (int i = 0; i < 8; i++) {
             for (int j = 0; j < 8; j++) {
@@ -203,17 +204,21 @@ public class Pole extends JPanel {
     public void moveFigure(Figure figure, Cell cell_to_move) {
         moveFigure(cage[figure.o_x][figure.o_y], cell_to_move);
     }
+    public void addFigure(Cell cell,Figure figure)
+    {
+        cell.figure_in_cell=figure;
+        cell.setIcon(figure.icon_figure);
+        figures.add(figure);
+    }
 
     public void moveFigure(Figure figure, Figure figure_to_eat) {
         moveFigure(cage[figure.o_x][figure.o_y], cage[figure_to_eat.o_x][figure_to_eat.o_y]);
     }
 
     public void removeFigure(Cell cell) {
-        removeFigure(cell.figure_in_cell);
-    }
-
-    public void removeFigure(Figure figure) {
-        figures.remove(figure);
+        cell.setIcon(null);
+        figures.remove(cell.figure_in_cell);
+        cell.figure_in_cell=null;
     }
 
     // Почему метод возвращает Icon?
@@ -238,5 +243,4 @@ public class Pole extends JPanel {
     public King getBlackKing() {
         return black_king;
     }
-
 }
