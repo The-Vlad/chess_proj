@@ -166,7 +166,10 @@ public class GameForm extends JFrame implements IWindow {
         if (checkCheck(opposite_king)) {
             if (checkMate(opposite_king)) {
                 System.out.println("CheckMate");
-                System.exit(0);
+                current_player = white_player;
+                board_panel.remove(pole);
+                pole = new Pole(new ButtonListener());
+                board_panel.add(pole);
             }
             highlighted_check_cell = pole.getCell(opposite_king.o_x, opposite_king.o_y);
             highlighted_check_cell.highlightCheck();

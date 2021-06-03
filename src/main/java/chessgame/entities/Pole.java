@@ -214,8 +214,8 @@ public class Pole extends JPanel {
 
         if (figure != null) {
             cell.setIcon(figure.icon_figure);
+            figures.add(figure);
         }
-        figures.add(figure);
     }
 
     public void moveFigure(Figure figure, Figure figure_to_eat) {
